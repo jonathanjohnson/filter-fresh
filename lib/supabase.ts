@@ -50,6 +50,22 @@ type BookingInsert = {
   created_at?: string;
 };
 
+type ZipRow = { zip: string; city_slug: string };
+type ZipInsert = ZipRow;
+
+type WaitlistRow = {
+  id: string;
+  email: string;
+  zip: string;
+  created_at: string;
+};
+type WaitlistInsert = {
+  id?: string;
+  email: string;
+  zip: string;
+  created_at?: string;
+};
+
 type CityRow = {
   slug: string;
   name: string;
@@ -92,6 +108,26 @@ export type Database = {
         Update: Partial<CityRow>;
         Relationships: [];
       };
+      zips: {
+        Row: ZipRow;
+        Insert: ZipInsert;
+        Update: Partial<ZipInsert>;
+        Relationships: [
+          {
+            foreignKeyName: "zips_city_slug_fkey";
+            columns: ["city_slug"];
+            isOneToOne: false;
+            referencedRelation: "cities";
+            referencedColumns: ["slug"];
+          },
+        ];
+      };
+      waitlist: {
+        Row: WaitlistRow;
+        Insert: WaitlistInsert;
+        Update: Partial<WaitlistInsert>;
+        Relationships: [];
+      };
     };
     Views: Record<string, never>;
     Functions: Record<string, never>;
@@ -107,6 +143,15 @@ export function getBrowserSupabase(): SupabaseClient<Database> {
   if (!url || !key) throw new Error("Supabase public env vars are not set");
   browserClient = createClient<Database>(url, key);
   return browserClient;
+}
+
+export function getPublicServerSupabase(): SupabaseClient<Database> {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!url || !key) throw new Error("Supabase public env vars are not set");
+  return createClient<Database>(url, key, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
 }
 
 export function getServerSupabase(): SupabaseClient<Database> {
