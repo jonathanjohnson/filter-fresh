@@ -1,0 +1,24 @@
+{
+  "name": "Temecula",
+  "slug": "temecula",
+  "county": "Riverside County",
+  "tier": 1,
+  "lat": 33.4936,
+  "lng": -117.1484,
+  "population": 110003,
+  "median_home_value": 675000,
+  "pool_density_note": "Temecula carries one of the highest backyard pool counts in south Riverside County. Roughly one in five single-family homes has a pool, with density concentrated in post-2000 subdivisions on the south and east sides of the city.",
+  "neighborhoods": [
+    "Redhawk",
+    "Paloma del Sol",
+    "Vail Ranch",
+    "Wolf Creek",
+    "Harveston",
+    "Crowne Hill",
+    "Roripaugh Ranch",
+    "Meadowview"
+  ],
+  "zips": ["92590", "92591", "92592"],
+  "local_landmark": "Harveston Lake Park",
+  "climate_note": "Temecula sits at the Rainbow Gap, the low pass that funnels marine air, fine inland dust, and warm afternoons through the valley. Decomposed-granite landscaping in newer subdivisions, oak and eucalyptus pollen from late January through April, and dust loading during Santa Ana events all push fine particulate into pool filters faster than coastal pools an hour west."
+}

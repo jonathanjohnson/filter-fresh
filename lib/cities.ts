@@ -41,3 +41,19 @@ export function getCityForZip(zip: string): City | undefined {
 export function allCitySlugs(): string[] {
   return CITIES.map((c) => c.slug);
 }
+
+export function getNearestCities(
+  fromSlug: string,
+  lat: number,
+  lng: number,
+  count: number
+): City[] {
+  return CITIES.filter((c) => c.slug !== fromSlug && c.lat != null && c.lng != null)
+    .map((c) => ({
+      city: c,
+      d: Math.hypot((c.lat as number) - lat, (c.lng as number) - lng),
+    }))
+    .sort((a, b) => a.d - b.d)
+    .slice(0, count)
+    .map((entry) => entry.city);
+}
