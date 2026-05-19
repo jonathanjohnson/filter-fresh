@@ -70,6 +70,52 @@ export function breadcrumbSchema(items: Array<{ name: string; url: string }>) {
   };
 }
 
+export function homepageBusinessSchema(cities: City[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${siteUrl}#business`,
+    name: BUSINESS.name,
+    url: BUSINESS.url,
+    telephone: BUSINESS.telephone,
+    priceRange: BUSINESS.priceRange,
+    description:
+      "Pool filter cleaning specialist serving Temecula, Murrieta, and all of San Diego County. Cartridge, DE, and sand filters cleaned, inspected, and pressure-tested for a flat $75.",
+    areaServed: cities.map((c) => ({
+      "@type": "City",
+      name: c.name,
+      containedInPlace: { "@type": "AdministrativeArea", name: c.county },
+      ...(c.lat && c.lng
+        ? { geo: { "@type": "GeoCoordinates", latitude: c.lat, longitude: c.lng } }
+        : {}),
+    })),
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Pool Filter Cleaning",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          price: "75.00",
+          priceCurrency: "USD",
+          itemOffered: { "@type": "Service", name: "Cartridge filter cleaning" },
+        },
+        {
+          "@type": "Offer",
+          price: "75.00",
+          priceCurrency: "USD",
+          itemOffered: { "@type": "Service", name: "DE filter cleaning" },
+        },
+        {
+          "@type": "Offer",
+          price: "75.00",
+          priceCurrency: "USD",
+          itemOffered: { "@type": "Service", name: "Sand filter rinse" },
+        },
+      ],
+    },
+  };
+}
+
 export function faqSchema(faqs: Array<{ q: string; a: string }>) {
   return {
     "@context": "https://schema.org",

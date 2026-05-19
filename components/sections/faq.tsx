@@ -1,4 +1,3 @@
-import Script from "next/script";
 import { faqSchema } from "@/lib/schema";
 
 export const DEFAULT_FAQS = [
@@ -27,8 +26,7 @@ export const DEFAULT_FAQS = [
 export function Faq({ faqs = DEFAULT_FAQS }: { faqs?: typeof DEFAULT_FAQS }) {
   return (
     <section id="faq" className="container py-16">
-      <Script
-        id="faq-schema"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
       />

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Script from "next/script";
 import { allCitySlugs, getCityBySlug } from "@/lib/cities";
 import { breadcrumbSchema, serviceSchemaForCity } from "@/lib/schema";
 import { Hero } from "@/components/sections/hero";
@@ -50,13 +49,11 @@ export default function CityPage({ params }: { params: Params }) {
 
   return (
     <>
-      <Script
-        id={`schema-service-${city.slug}`}
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchemaForCity(city)) }}
       />
-      <Script
-        id={`schema-crumbs-${city.slug}`}
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }}
       />
