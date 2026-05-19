@@ -22,8 +22,8 @@ export function Hero({ cityName, headline, subhead }: HeroProps) {
   return (
     <section className="container py-16 md:py-24">
       <div className="mx-auto max-w-3xl text-center">
-        <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
-          Flat rate — no upsells
+        <span className="ff-stamp">
+          $75 flat — no upsells
         </span>
         <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">{title}</h1>
         <p className="mt-4 text-lg text-muted-foreground">{sub}</p>

@@ -4,30 +4,64 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    /* Surfaces — warm-leaning neutrals (no cold blue-gray) */
+    --background: 140 18% 97%;          /* ink-50 */
+    --foreground: 150 14% 9%;           /* ink-950 */
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-    --primary: 199 89% 48%;
+    --card-foreground: 150 14% 9%;
+
+    /* Brand */
+    --primary: 147 80% 42%;             /* fresh-500 #15C26B */
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 187 100% 42%;
+    --accent: 17 100% 56%;              /* citrus-500 #FF6A1F */
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
+
+    /* Neutral pairs */
+    --secondary: 140 12% 94%;
+    --secondary-foreground: 150 14% 14%;
+    --muted: 140 10% 94%;
+    --muted-foreground: 150 8% 38%;
+
+    /* Lines & focus */
+    --border: 140 10% 88%;
+    --input: 140 10% 86%;
+    --ring: 147 80% 42%;
+
+    /* Semantic */
+    --success: 147 80% 35%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 30 30% 10%;
+    --destructive: 348 83% 47%;
     --destructive-foreground: 0 0% 100%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 199 89% 48%;
+
     --radius: 0.625rem;
   }
 
   * {
     @apply border-border;
   }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  /* Display type uses Space Grotesk — confident, geometric, service-trade. */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+  }
+}
+
+@layer components {
+  /* Service-trade "stamped" badge — used for price callouts and tier tags. */
+  .ff-stamp {
+    @apply inline-flex items-center gap-1.5 rounded-md border border-ink-900 bg-ink-950 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-background;
   }
 }
