@@ -12,8 +12,8 @@ export function SiteHeader() {
         <nav className="hidden gap-6 text-sm text-muted-foreground md:flex">
           <Link href="/pool-filter-cleaning" className="hover:text-foreground">Service</Link>
           <Link href="/pricing" className="hover:text-foreground">Pricing</Link>
+          <Link href="/blog" className="hover:text-foreground">Blog</Link>
           <Link href="/#service-area" className="hover:text-foreground">Service area</Link>
-          <Link href="/#faq" className="hover:text-foreground">FAQ</Link>
         </nav>
         <Link href="/book" className={buttonVariants({ size: "sm" })}>
           Book — $75
