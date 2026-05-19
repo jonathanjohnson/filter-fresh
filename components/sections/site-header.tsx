@@ -11,6 +11,7 @@ export function SiteHeader() {
         </Link>
         <nav className="hidden gap-6 text-sm text-muted-foreground md:flex">
           <Link href="/pool-filter-cleaning" className="hover:text-foreground">Service</Link>
+          <Link href="/pricing" className="hover:text-foreground">Pricing</Link>
           <Link href="/#service-area" className="hover:text-foreground">Service area</Link>
           <Link href="/#faq" className="hover:text-foreground">FAQ</Link>
         </nav>

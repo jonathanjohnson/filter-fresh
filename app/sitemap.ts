@@ -14,6 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.95,
     },
+    {
+      url: `${siteUrl}/pricing`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     { url: `${siteUrl}/book`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
   ];
   const cityEntries = getAllCities().map((c) => ({
