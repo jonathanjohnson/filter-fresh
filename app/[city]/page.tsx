@@ -65,6 +65,16 @@ export default function CityPage({ params }: { params: Params }) {
 
       <section className="container pb-4">
         <p className="mx-auto max-w-3xl text-center text-muted-foreground">{intro}</p>
+        <p className="mx-auto mt-3 max-w-3xl text-center text-sm text-muted-foreground">
+          New to filter service? Read our{" "}
+          <a
+            href="/pool-filter-cleaning"
+            className="font-semibold text-primary hover:underline"
+          >
+            complete guide to pool filter cleaning
+          </a>{" "}
+          for the full breakdown of cartridge, DE, and sand systems.
+        </p>
       </section>
 
       <HowItWorks />

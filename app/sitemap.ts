@@ -7,6 +7,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const base: MetadataRoute.Sitemap = [
     { url: `${siteUrl}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    {
+      url: `${siteUrl}/pool-filter-cleaning`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.95,
+    },
     { url: `${siteUrl}/book`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
   ];
   const cityEntries = getAllCities().map((c) => ({

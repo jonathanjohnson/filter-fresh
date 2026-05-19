@@ -70,6 +70,63 @@ export function breadcrumbSchema(items: Array<{ name: string; url: string }>) {
   };
 }
 
+export function servicePageSchema(cities: City[]) {
+  const counties = Array.from(new Set(cities.map((c) => c.county)));
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${siteUrl}/pool-filter-cleaning#service`,
+    name: "Pool Filter Cleaning",
+    serviceType: "Pool Filter Cleaning",
+    description:
+      "Specialist pool filter cleaning for cartridge, DE, and sand systems. Includes degreaser soak, hand rinse, full inspection, manifold check, and pressure test. Flat $75.",
+    provider: { "@id": `${siteUrl}#business` },
+    areaServed: [
+      ...counties.map((county) => ({
+        "@type": "AdministrativeArea" as const,
+        name: county,
+      })),
+      ...cities.map((c) => ({
+        "@type": "City" as const,
+        name: c.name,
+        containedInPlace: { "@type": "AdministrativeArea", name: c.county },
+      })),
+    ],
+    offers: {
+      "@type": "Offer",
+      price: "75.00",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: `${siteUrl}/book`,
+      itemOffered: { "@type": "Service", name: "Pool Filter Cleaning" },
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Pool Filter Cleaning Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          price: "75.00",
+          priceCurrency: "USD",
+          itemOffered: { "@type": "Service", name: "Cartridge filter cleaning" },
+        },
+        {
+          "@type": "Offer",
+          price: "75.00",
+          priceCurrency: "USD",
+          itemOffered: { "@type": "Service", name: "DE filter cleaning" },
+        },
+        {
+          "@type": "Offer",
+          price: "75.00",
+          priceCurrency: "USD",
+          itemOffered: { "@type": "Service", name: "Sand filter service" },
+        },
+      ],
+    },
+  };
+}
+
 export function homepageBusinessSchema(cities: City[]) {
   return {
     "@context": "https://schema.org",
