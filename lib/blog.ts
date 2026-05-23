@@ -6,6 +6,8 @@ export type BlogPostPillar = "education" | "cost" | "local";
 
 export type BlogPostFaq = { q: string; a: string };
 
+export type TocEntry = { id: string; text: string; depth: 2 | 3 };
+
 export type BlogPostFrontmatter = {
   title: string;
   slug: string;
@@ -24,6 +26,7 @@ export type BlogPost = BlogPostFrontmatter & {
   contentHtml: string;
   contentMarkdown: string;
   readingMinutes: number;
+  toc: TocEntry[];
 };
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
@@ -130,6 +133,37 @@ function parseScalar(raw: string): unknown {
 
 let cache: BlogPost[] | null = null;
 
+function slugifyHeading(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/<[^>]+>/g, "")
+    .replace(/&[^;]+;/g, "")
+    .replace(/[^\w\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function injectHeadingIdsAndExtractToc(html: string): {
+  html: string;
+  toc: TocEntry[];
+} {
+  const toc: TocEntry[] = [];
+  const seen = new Set<string>();
+  const withIds = html.replace(/<(h[23])>([^<]+)<\/\1>/g, (_, tag, text) => {
+    let id = slugifyHeading(text);
+    let n = 2;
+    while (seen.has(id)) {
+      id = `${slugifyHeading(text)}-${n++}`;
+    }
+    seen.add(id);
+    const depth = tag === "h2" ? 2 : 3;
+    toc.push({ id, text, depth });
+    return `<${tag} id="${id}">${text}</${tag}>`;
+  });
+  return { html: withIds, toc };
+}
+
 function loadAll(): BlogPost[] {
   if (cache) return cache;
   if (!fs.existsSync(BLOG_DIR)) return [];
@@ -138,13 +172,15 @@ function loadAll(): BlogPost[] {
   const posts: BlogPost[] = files.map((file) => {
     const raw = fs.readFileSync(path.join(BLOG_DIR, file), "utf8");
     const { data, body } = parseFrontmatter(raw);
-    const contentHtml = marked.parse(body) as string;
+    const rawHtml = marked.parse(body) as string;
+    const { html: contentHtml, toc } = injectHeadingIdsAndExtractToc(rawHtml);
     const words = body.split(/\s+/).filter(Boolean).length;
     return {
       ...data,
       contentMarkdown: body,
       contentHtml,
       readingMinutes: Math.max(1, Math.round(words / 220)),
+      toc,
     };
   });
   posts.sort(

@@ -142,7 +142,7 @@ function FilterTypes() {
               Not sure what you have? Tell us the brand on the housing, send a photo, or take our
               30-second quiz. We&rsquo;ll identify it before we roll out.
             </p>
-            <Link href="/book" className="ff-btn ff-btn--ghost mt-3.5">
+            <Link href="/quiz" className="ff-btn ff-btn--ghost mt-3.5">
               Take the filter quiz <Arrow />
             </Link>
           </div>
