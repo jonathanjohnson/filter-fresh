@@ -50,8 +50,22 @@ type BookingInsert = {
   created_at?: string;
 };
 
-type ZipRow = { zip: string; city_slug: string };
-type ZipInsert = ZipRow;
+type ZipRow = {
+  zip: string;
+  city: string;
+  county: string;
+  region: string;
+  in_service_area: boolean;
+  created_at: string | null;
+};
+type ZipInsert = {
+  zip: string;
+  city: string;
+  county: string;
+  region: string;
+  in_service_area?: boolean;
+  created_at?: string | null;
+};
 
 type WaitlistRow = {
   id: string;
@@ -61,6 +75,21 @@ type WaitlistRow = {
 };
 type WaitlistInsert = {
   id?: string;
+  email: string;
+  zip: string;
+  created_at?: string;
+};
+
+type LeadsOutsideAreaRow = {
+  id: string;
+  name: string;
+  email: string;
+  zip: string;
+  created_at: string;
+};
+type LeadsOutsideAreaInsert = {
+  id?: string;
+  name: string;
   email: string;
   zip: string;
   created_at?: string;
@@ -112,20 +141,18 @@ export type Database = {
         Row: ZipRow;
         Insert: ZipInsert;
         Update: Partial<ZipInsert>;
-        Relationships: [
-          {
-            foreignKeyName: "zips_city_slug_fkey";
-            columns: ["city_slug"];
-            isOneToOne: false;
-            referencedRelation: "cities";
-            referencedColumns: ["slug"];
-          },
-        ];
+        Relationships: [];
       };
       waitlist: {
         Row: WaitlistRow;
         Insert: WaitlistInsert;
         Update: Partial<WaitlistInsert>;
+        Relationships: [];
+      };
+      leads_outside_area: {
+        Row: LeadsOutsideAreaRow;
+        Insert: LeadsOutsideAreaInsert;
+        Update: Partial<LeadsOutsideAreaInsert>;
         Relationships: [];
       };
     };

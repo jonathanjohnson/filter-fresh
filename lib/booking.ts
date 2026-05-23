@@ -52,15 +52,6 @@ export const CADENCE_LABELS: Record<(typeof CADENCES)[number], string> = {
   quarterly: `Quarterly schedule, $${RECURRING_PRICE} per visit`,
 };
 
-export const checkZipSchema = z.object({
-  zip: z.string().regex(/^\d{5}$/, "ZIP must be 5 digits"),
-});
-
-export const waitlistSchema = z.object({
-  email: z.string().email(),
-  zip: z.string().regex(/^\d{5}$/),
-});
-
 export const submitBookingSchema = z.object({
   zip: z.string().regex(/^\d{5}$/),
   citySlug: z.string().min(1),

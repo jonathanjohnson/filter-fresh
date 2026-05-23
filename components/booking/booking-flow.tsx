@@ -40,6 +40,8 @@ type BookingState = {
   zip: string;
   citySlug: string | null;
   cityName: string | null;
+  cityCounty: string | null;
+  cityRegion: string | null;
   filterType: FilterType | null;
   poolSize: PoolSize | null;
   lastCleaned: LastCleaned | null;
@@ -59,6 +61,8 @@ const INITIAL: BookingState = {
   zip: "",
   citySlug: null,
   cityName: null,
+  cityCounty: null,
+  cityRegion: null,
   filterType: null,
   poolSize: null,
   lastCleaned: null,
@@ -219,9 +223,11 @@ export function BookingFlow() {
           <StepZip
             state={state}
             update={update}
-            onPass={(citySlug, cityName) => {
-              update("citySlug", citySlug);
-              update("cityName", cityName);
+            onPass={(info) => {
+              update("citySlug", info.citySlug);
+              update("cityName", info.cityName);
+              update("cityCounty", info.cityCounty);
+              update("cityRegion", info.cityRegion);
               goToStep(2);
             }}
           />
@@ -309,6 +315,13 @@ function Stepper({ step }: { step: number }) {
 /* Step 1: ZIP                                                                */
 /* -------------------------------------------------------------------------- */
 
+type ZipInfo = {
+  citySlug: string;
+  cityName: string;
+  cityCounty: string;
+  cityRegion: string;
+};
+
 function StepZip({
   state,
   update,
@@ -316,136 +329,218 @@ function StepZip({
 }: {
   state: BookingState;
   update: <K extends keyof BookingState>(k: K, v: BookingState[K]) => void;
-  onPass: (citySlug: string, cityName: string) => void;
+  onPass: (info: ZipInfo) => void;
 }) {
-  const [checking, setChecking] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [waitlistEmail, setWaitlistEmail] = useState("");
-  const [waitlistStatus, setWaitlistStatus] = useState<
+  type Status = "idle" | "invalid_format" | "out_of_service_area" | "error";
+
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  // Out-of-area capture form
+  const [outName, setOutName] = useState("");
+  const [outEmail, setOutEmail] = useState("");
+  const [captureStatus, setCaptureStatus] = useState<
     "idle" | "saving" | "ok" | "error"
   >("idle");
-  const [outOfArea, setOutOfArea] = useState(false);
+  const [captureError, setCaptureError] = useState<string | null>(null);
 
-  async function check() {
-    setError(null);
-    if (!/^\d{5}$/.test(state.zip)) {
-      setError("Enter a 5-digit ZIP.");
-      return;
-    }
-    setChecking(true);
+  const isFiveDigits = state.zip.length === 5;
+
+  async function onSubmitZip(e: React.FormEvent) {
+    e.preventDefault();
+    if (!isFiveDigits || submitting) return;
+    setSubmitting(true);
+    setStatus("idle");
+    setErrorMessage(null);
+    setCaptureStatus("idle");
+    setCaptureError(null);
     try {
-      const res = await fetch("/api/booking/check-zip", {
+      const res = await fetch("/api/validate-zip", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ zip: state.zip }),
       });
-      const body = await res.json();
-      if (body.in_service_area) {
-        setOutOfArea(false);
-        onPass(body.city_slug, body.city_name);
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setStatus("error");
+        setErrorMessage(body?.error ?? "ZIP lookup failed");
+        return;
+      }
+      if (body.status === "in_service_area") {
+        // Sync sanitized ZIP from server in case input was messy.
+        update("zip", body.zip);
+        const slug = String(body.city ?? "")
+          .toLowerCase()
+          .replace(/\s+/g, "-");
+        onPass({
+          citySlug: slug,
+          cityName: body.city,
+          cityCounty: body.county,
+          cityRegion: body.region,
+        });
+      } else if (body.status === "out_of_service_area") {
+        setStatus("out_of_service_area");
+      } else if (body.status === "invalid_format") {
+        setStatus("invalid_format");
       } else {
-        setOutOfArea(true);
+        setStatus("error");
+        setErrorMessage("Unexpected response from server");
       }
     } catch {
-      setError("Could not check that ZIP. Try again, or call us.");
+      setStatus("error");
+      setErrorMessage("Could not reach the service area check. Try again, or call us.");
     } finally {
-      setChecking(false);
+      setSubmitting(false);
     }
   }
 
-  async function joinWaitlist(e: React.FormEvent) {
+  async function onCaptureSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setWaitlistStatus("saving");
+    if (captureStatus === "saving") return;
+    setCaptureStatus("saving");
+    setCaptureError(null);
     try {
-      const res = await fetch("/api/booking/waitlist", {
+      const res = await fetch("/api/leads-outside-area", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ email: waitlistEmail, zip: state.zip }),
+        body: JSON.stringify({
+          name: outName.trim(),
+          email: outEmail.trim(),
+          zip: state.zip,
+        }),
       });
-      if (!res.ok) throw new Error();
-      setWaitlistStatus("ok");
-    } catch {
-      setWaitlistStatus("error");
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(body?.error ?? "save failed");
+      }
+      setCaptureStatus("ok");
+    } catch (err) {
+      setCaptureStatus("error");
+      setCaptureError(err instanceof Error ? err.message : "save failed");
     }
   }
 
   return (
-    <div>
+    <form onSubmit={onSubmitZip} className="space-y-4" noValidate>
       <h2 className="text-2xl font-bold tracking-tight">Are we in your area?</h2>
-      <p className="mt-2 text-sm text-muted-foreground">
-        We serve Temecula through every city in San Diego County. Drop your ZIP and we
-        will check.
+      <p className="mt-1 text-sm text-muted-foreground">
+        Enter your ZIP code. We&rsquo;ll confirm we service your address before moving on.
       </p>
-      <div className="mt-6 grid gap-3 sm:grid-cols-[1fr_auto]">
-        <div>
-          <Label htmlFor="zip">ZIP code</Label>
-          <Input
-            id="zip"
-            inputMode="numeric"
-            maxLength={5}
-            autoComplete="postal-code"
-            value={state.zip}
-            onChange={(e) => {
-              update("zip", e.target.value.replace(/\D/g, ""));
-              setOutOfArea(false);
-              setError(null);
-            }}
-            placeholder="92591"
-            className="mt-2 text-lg tabular-nums"
-          />
-        </div>
-        <div className="flex items-end">
-          <Button
-            type="button"
-            size="lg"
-            onClick={check}
-            disabled={checking || state.zip.length !== 5}
-            className="w-full sm:w-auto"
-          >
-            {checking ? "Checking..." : "Check ZIP"}
-          </Button>
-        </div>
-      </div>
-      {error && (
-        <div className="mt-4 rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">
-          {error}
-        </div>
-      )}
-      {outOfArea && (
-        <div className="mt-6 rounded-lg border border-warning/40 bg-warning/10 p-5">
-          <div className="font-semibold">
-            We do not service {state.zip} yet
-          </div>
-          <p className="mt-1 text-sm text-muted-foreground">
-            We are growing the route map quarterly. Leave an email and we will write
-            when we hit your ZIP. No marketing in the meantime.
+
+      <div>
+        <Label htmlFor="zip">ZIP code</Label>
+        <Input
+          id="zip"
+          type="text"
+          inputMode="numeric"
+          pattern="[0-9]*"
+          maxLength={5}
+          autoComplete="postal-code"
+          value={state.zip}
+          onChange={(e) => {
+            update("zip", e.target.value.replace(/\D/g, "").slice(0, 5));
+            if (status !== "idle") setStatus("idle");
+            setErrorMessage(null);
+          }}
+          placeholder="92591"
+          aria-invalid={status === "invalid_format"}
+          aria-describedby={status === "invalid_format" ? "zip-error" : undefined}
+          className="mt-2 text-lg tabular-nums"
+        />
+        {status === "invalid_format" && (
+          <p id="zip-error" className="mt-2 text-sm text-destructive">
+            Please enter a valid 5-digit ZIP code
           </p>
-          {waitlistStatus === "ok" ? (
-            <div className="mt-3 text-sm text-ff-brand font-semibold">
-              Got it. We will be in touch when we get there.
+        )}
+      </div>
+
+      {status === "out_of_service_area" && (
+        <div className="rounded-lg border border-warning/50 bg-warning/10 p-5">
+          {captureStatus === "ok" ? (
+            <div>
+              <div className="font-semibold text-ff-ink">Thanks, we&rsquo;ll be in touch.</div>
+              <p className="mt-1 text-sm text-muted-foreground">
+                We&rsquo;ll email {outEmail.trim()} as soon as we expand to {state.zip}.
+              </p>
             </div>
           ) : (
-            <form onSubmit={joinWaitlist} className="mt-3 grid gap-3 sm:grid-cols-[1fr_auto]">
-              <Input
-                type="email"
-                required
-                placeholder="you@example.com"
-                value={waitlistEmail}
-                onChange={(e) => setWaitlistEmail(e.target.value)}
-              />
-              <Button type="submit" disabled={waitlistStatus === "saving"}>
-                {waitlistStatus === "saving" ? "Saving..." : "Notify me"}
-              </Button>
-            </form>
-          )}
-          {waitlistStatus === "error" && (
-            <div className="mt-2 text-xs text-destructive">
-              Could not save. Try again or email hello@filterfresh.example.com.
-            </div>
+            <>
+              <div className="font-semibold text-ff-ink">
+                We don&rsquo;t service {state.zip} yet.
+              </div>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Leave your details and we&rsquo;ll let you know the moment our route reaches
+                your area. No marketing in the meantime.
+              </p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-[1fr_1fr_auto]">
+                <div>
+                  <Label htmlFor="out-name" className="sr-only">
+                    Name
+                  </Label>
+                  <Input
+                    id="out-name"
+                    type="text"
+                    required
+                    placeholder="Your name"
+                    autoComplete="name"
+                    value={outName}
+                    onChange={(e) => setOutName(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="out-email" className="sr-only">
+                    Email
+                  </Label>
+                  <Input
+                    id="out-email"
+                    type="email"
+                    required
+                    placeholder="you@example.com"
+                    autoComplete="email"
+                    value={outEmail}
+                    onChange={(e) => setOutEmail(e.target.value)}
+                  />
+                </div>
+                <Button
+                  type="button"
+                  onClick={onCaptureSubmit}
+                  disabled={
+                    captureStatus === "saving" ||
+                    outName.trim().length === 0 ||
+                    outEmail.trim().length === 0
+                  }
+                >
+                  {captureStatus === "saving" ? "Saving…" : "Notify me"}
+                </Button>
+              </div>
+              {captureStatus === "error" && (
+                <p className="mt-2 text-xs text-destructive">
+                  {captureError ?? "Could not save. Try again."}
+                </p>
+              )}
+            </>
           )}
         </div>
       )}
-    </div>
+
+      {status === "error" && (
+        <div className="rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">
+          {errorMessage ?? "Could not check that ZIP. Try again, or call us."}
+        </div>
+      )}
+
+      <div className="flex justify-end">
+        <Button
+          type="submit"
+          size="lg"
+          disabled={!isFiveDigits || submitting}
+          aria-busy={submitting || undefined}
+        >
+          {submitting ? "Checking…" : "Continue"}
+        </Button>
+      </div>
+    </form>
   );
 }
 

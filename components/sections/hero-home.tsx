@@ -5,31 +5,33 @@ import Link from "next/link";
 import { Pill } from "@/components/ui/pill";
 import { Arrow, FilterIcon, Star, type FilterType } from "@/components/ui/icons";
 
-const SERVED_ZIPS = new Set([
-  "92590", "92591", "92592", "92562", "92563", "92595", "92587", "92883",
-  "92530", "92532", "92584", "92585", "92586",
-  "92101", "92102", "92103", "92104", "92105", "92106", "92107", "92108",
-  "92109", "92110", "92111", "92113", "92114", "92115", "92116", "92117",
-  "92118", "92119", "92120", "92121", "92122", "92123", "92124", "92126",
-  "92127", "92128", "92129", "92130", "92131",
-  "91910", "91911", "91913", "91914", "91915", "91932", "91941", "91942",
-  "91945", "91950",
-  "92007", "92008", "92009", "92010", "92011", "92014", "92019", "92020",
-  "92021", "92024", "92025", "92026", "92027", "92028", "92029", "92040",
-  "92054", "92056", "92057", "92058", "92064", "92065", "92067", "92069",
-  "92071", "92075", "92078", "92081", "92082", "92083", "92084", "92091",
-  "91901",
-]);
-
 export function HeroHome() {
   const [filter, setFilter] = useState<FilterType>("cartridge");
   const [zip, setZip] = useState("");
-  const [zipState, setZipState] = useState<"idle" | "yes" | "no">("idle");
+  const [zipState, setZipState] = useState<"idle" | "yes" | "no" | "checking">("idle");
+  const [zipCity, setZipCity] = useState<string | null>(null);
 
-  function checkZip(e: React.FormEvent) {
+  async function checkZip(e: React.FormEvent) {
     e.preventDefault();
     if (zip.length < 5) return;
-    setZipState(SERVED_ZIPS.has(zip) ? "yes" : "no");
+    setZipState("checking");
+    try {
+      const res = await fetch("/api/validate-zip", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ zip }),
+      });
+      const body = await res.json().catch(() => ({}));
+      if (body?.status === "in_service_area") {
+        setZipCity(body.city);
+        setZipState("yes");
+      } else {
+        setZipCity(null);
+        setZipState("no");
+      }
+    } catch {
+      setZipState("no");
+    }
   }
 
   return (
@@ -147,7 +149,7 @@ export function HeroHome() {
                   }}
                 >
                   <span>✓</span>
-                  Yes &mdash; we serve <strong>{zip}</strong>. Next-day slots open.
+                  Yes &mdash; we serve <strong>{zipCity ?? zip}</strong>. Next-day slots open.
                 </div>
               )}
               {zipState === "no" && (
