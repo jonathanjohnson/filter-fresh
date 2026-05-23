@@ -364,7 +364,10 @@ function StepZip({
       const body = await res.json().catch(() => ({}));
       if (!res.ok) {
         setStatus("error");
-        setErrorMessage(body?.error ?? "ZIP lookup failed");
+        const msg = body?.detail
+          ? `${body?.error ?? "ZIP lookup failed"} — ${body.detail}`
+          : body?.error ?? "ZIP lookup failed";
+        setErrorMessage(msg);
         return;
       }
       if (body.status === "in_service_area") {

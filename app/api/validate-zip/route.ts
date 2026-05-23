@@ -22,9 +22,10 @@ export async function POST(req: Request) {
     const result = await validateZip((body as { zip: unknown }).zip);
     return NextResponse.json(result, { status: 200 });
   } catch (err) {
+    const detail = err instanceof Error ? err.message : String(err);
     console.error("[/api/validate-zip] unhandled error:", err);
     return NextResponse.json(
-      { error: "ZIP lookup failed" },
+      { error: "ZIP lookup failed", detail },
       { status: 500 }
     );
   }
