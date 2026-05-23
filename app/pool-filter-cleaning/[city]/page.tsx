@@ -35,7 +35,7 @@ export const dynamicParams = false;
 export function generateMetadata({ params }: { params: Params }): Metadata {
   const c = getExtendedCity(params.city);
   if (!c) return {};
-  const title = `Pool Filter Cleaning in ${c.name}, CA | $75 Flat | Filter Fresh`;
+  const title = `Pool Filter Cleaning in ${c.name}, CA | $75 Flat | Filter Fresh Pools`;
   const description = `Specialist pool filter cleaning in ${c.name}. Cartridge, DE, and sand systems serviced for a flat $75. ${c.climate_note.split(".").slice(0, 1).join(".")}.`;
   return {
     title,
@@ -221,7 +221,7 @@ function Neighborhoods({ city: c }: { city: ExtendedCity }) {
           Service across every {c.name} subdivision
         </h2>
         <p className="mt-5 text-muted-foreground">
-          Filter Fresh runs a regular route through {c.name}. The neighborhoods below
+          Filter Fresh Pools runs a regular route through {c.name}. The neighborhoods below
           are where we service the most pools. If you live outside this list but
           inside city limits, ask. We routinely take jobs anywhere within {c.name},
           and we hold the same flat {PRICE_DISPLAY} rate across every address.
@@ -251,7 +251,7 @@ function ServiceSummary() {
       <div className="container py-14 md:py-20">
         <div className="mx-auto max-w-3xl">
           <div className="text-sm font-semibold uppercase tracking-wide text-primary">
-            What a Filter Fresh visit looks like
+            What a Filter Fresh Pools visit looks like
           </div>
           <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
             The {PRICE_DISPLAY} service, briefly
@@ -289,7 +289,7 @@ function ServiceSummary() {
 function PricingCallout({ city: c }: { city: ExtendedCity }) {
   return (
     <section className="container py-14 md:py-20">
-      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 shadow-pop md:p-10">
+      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 shadow-card-pop md:p-10">
         <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
           <div>
             <div className="text-sm font-semibold uppercase tracking-wide text-primary">
@@ -301,7 +301,7 @@ function PricingCallout({ city: c }: { city: ExtendedCity }) {
             <p className="mt-3 text-sm text-muted-foreground">
               Full-service pool companies serving {c.name} typically bill a filter
               clean at $150 to $200 as part of a weekly route, or $130 to $170 as a
-              one-off visit. Filter Fresh charges {PRICE_DISPLAY} flat regardless of
+              one-off visit. Filter Fresh Pools charges {PRICE_DISPLAY} flat regardless of
               filter type, address, or how loaded the element is. No trip charges,
               no contracts, no membership.
             </p>
@@ -494,7 +494,7 @@ function Cta({
 }) {
   return (
     <section className="container py-14 md:py-20">
-      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 text-center shadow-pop md:p-12">
+      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 text-center shadow-card-pop md:p-12">
         <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
           Book a {PRICE_DISPLAY} cleaning in {c.name}
         </h2>

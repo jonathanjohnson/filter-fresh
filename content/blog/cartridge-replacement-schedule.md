@@ -7,7 +7,7 @@ target_keyword: when to replace pool filter cartridge
 search_volume: 20
 keyword_difficulty: 1
 published_at: 2026-05-25
-author: Filter Fresh team
+author: Filter Fresh Pools team
 featured_alt: A new replacement Pentair pool filter cartridge in its box next to an end-of-life cartridge with collapsed pleats and a split end-cap band, on a workbench in a Temecula equipment yard.
 faqs:
   - q: How often do pool cartridge filters need to be replaced?

@@ -1,4 +1,4 @@
-# Filter Fresh — Initial Blog Content Cluster
+# Filter Fresh Pools — Initial Blog Content Cluster
 
 Twelve posts in three pillars, sequenced by Ahrefs traffic potential and conversion intent. Each post funnels to `/pool-filter-cleaning` (the service hub) and `/pricing`, plus 2 to 3 relevant city pages.
 
@@ -103,7 +103,7 @@ Specific suggested city links per post:
 - One H2 that frames the local angle (Southern California, San Diego County, or a named city)
 - Lead-in paragraph that names the problem directly (no "in today's world" openers)
 - FAQ section with 4 questions, emitted as both visible content and FAQPage schema
-- Author byline "Filter Fresh team"
+- Author byline "Filter Fresh Pools team"
 - Featured-image alt text described in the frontmatter (`featured_alt`), ready for whichever image source you use
 - Internal links woven into prose, not parked in a footer
 - No em dashes, no en dashes, no emojis

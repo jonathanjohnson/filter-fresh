@@ -48,7 +48,7 @@ function articleSchema(post: NonNullable<ReturnType<typeof getBlogPostBySlug>>) 
     dateModified: post.published_at,
     author: {
       "@type": "Organization",
-      name: post.author ?? "Filter Fresh team",
+      name: post.author ?? "Filter Fresh Pools team",
       url: SITE_URL,
     },
     publisher: { "@id": `${SITE_URL}#business` },
@@ -97,7 +97,7 @@ export default function BlogPostPage({ params }: { params: Params }) {
             {post.title}
           </h1>
           <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
-            <span>{post.author ?? "Filter Fresh team"}</span>
+            <span>{post.author ?? "Filter Fresh Pools team"}</span>
             <span aria-hidden>•</span>
             <span>
               {new Date(post.published_at).toLocaleDateString("en-US", {
@@ -131,7 +131,7 @@ export default function BlogPostPage({ params }: { params: Params }) {
             </section>
           )}
 
-          <section className="mt-12 rounded-2xl border bg-card p-8 text-center shadow-pop">
+          <section className="mt-12 rounded-2xl border bg-card p-8 text-center shadow-card-pop">
             <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
               {PRICE_DISPLAY} flat. Temecula to San Diego.
             </h2>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Sora } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { SiteHeader } from "@/components/sections/site-header";
@@ -13,13 +13,14 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  weight: ["400", "500", "600"],
 });
 
-const spaceGrotesk = Space_Grotesk({
+const sora = Sora({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["500", "600", "700"],
+  weight: ["700", "800"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://filterfresh.example.com";
@@ -27,14 +28,14 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://filterfresh.example
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Filter Fresh — $75 Pool Filter Cleaning, Temecula to San Diego",
-    template: "%s | Filter Fresh",
+    default: "Filter Fresh Pools — $75 Pool Filter Cleaning, Temecula to San Diego",
+    template: "%s | Filter Fresh Pools",
   },
   description:
     "Professional pool filter cleaning for $75 flat — half the local market rate. Serving Temecula, Murrieta, and all of San Diego County.",
   openGraph: {
     type: "website",
-    siteName: "Filter Fresh",
+    siteName: "Filter Fresh Pools",
     url: siteUrl,
   },
   robots: { index: true, follow: true },
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
+      <body className={`${inter.variable} ${sora.variable} font-sans`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}

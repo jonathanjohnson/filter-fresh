@@ -7,7 +7,7 @@ target_keyword: pool filter cleaning service cost
 search_volume: 100
 keyword_difficulty: 0
 published_at: 2026-05-26
-author: Filter Fresh team
+author: Filter Fresh Pools team
 featured_alt: A full-service pool route truck loaded with chemical containers, vacuum hoses, and a tablet for chemistry logging parked at an Encinitas residential driveway in early morning light.
 faqs:
   - q: Why is pool filter cleaning so expensive?
@@ -16,7 +16,7 @@ faqs:
     a: Yes, when the price reflects the bundled service. If you also get weekly chemistry, brushing, vacuuming, and equipment monitoring, $150 to $200 per filter clean is reasonable inside the bundle. It is not reasonable as a standalone visit price.
   - q: Should I fire my pool company and use a filter specialist?
     a: If you like having a generalist handle everything for one monthly invoice, keep them. If you maintain weekly chemistry yourself and only need the filter cleaned, switching to a specialist saves roughly $40 to $130 per visit. The two models serve different customers, and many of ours keep their weekly service and use us as the filter specialist.
-  - q: How can Filter Fresh charge so much less?
+  - q: How can Filter Fresh Pools charge so much less?
     a: One service, one truck, one technician, no chemical inventory, no equipment sales, no franchise overhead, route density by ZIP code. We explain the full math on our pricing page. The lower price is structural, not promotional.
 ---
 

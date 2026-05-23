@@ -20,7 +20,7 @@ export function SiteHeader() {
             priority
             className="h-11 w-11 rounded-md"
           />
-          <span className="hidden font-semibold tracking-tight sm:inline">Filter Fresh</span>
+          <span className="hidden font-semibold tracking-tight sm:inline">Filter Fresh Pools</span>
         </Link>
         <nav className="hidden gap-6 text-sm text-muted-foreground md:flex">
           <Link href="/pool-filter-cleaning" className="hover:text-foreground">Service</Link>

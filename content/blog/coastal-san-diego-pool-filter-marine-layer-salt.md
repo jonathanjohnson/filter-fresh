@@ -7,7 +7,7 @@ target_keyword: coastal pool filter care
 search_volume: 0
 keyword_difficulty: 0
 published_at: 2026-05-29
-author: Filter Fresh team
+author: Filter Fresh Pools team
 featured_alt: A coastal pool equipment pad in Coronado at sunrise with thin marine layer fog visible, salt residue on the pump housing, and a Hayward SwimClear filter with light corrosion on the pressure gauge stem.
 faqs:
   - q: Does salt air damage pool filters?

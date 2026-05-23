@@ -1,4 +1,4 @@
-# Filter Fresh — static assets
+# Filter Fresh Pools — static assets
 
 ## Logo
 

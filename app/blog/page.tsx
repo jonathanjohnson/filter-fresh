@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { getAllBlogPosts, PILLAR_LABELS } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Pool Filter Knowledge | Filter Fresh Blog",
+  title: "Pool Filter Knowledge | Filter Fresh Pools Blog",
   description:
     "Plain-language guides to pool filter cleaning, costs, equipment, and seasonal care across Temecula and San Diego County.",
   alternates: { canonical: "/blog" },
@@ -15,7 +15,7 @@ export default function BlogIndexPage() {
     <section className="container py-14 md:py-20">
       <div className="mx-auto max-w-4xl">
         <div className="text-sm font-semibold uppercase tracking-wide text-primary">
-          Filter Fresh blog
+          Filter Fresh Pools blog
         </div>
         <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
           Pool filter knowledge, plain English

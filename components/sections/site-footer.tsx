@@ -6,7 +6,7 @@ import { LOGO_SRC } from "@/lib/brand";
 export function SiteFooter() {
   const tier1 = getCitiesByTier(1);
   return (
-    <footer className="border-t bg-secondary/40">
+    <footer className="border-t bg-secondary">
       <div className="container py-12">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
@@ -18,11 +18,13 @@ export function SiteFooter() {
                 height={36}
                 className="h-9 w-9 rounded-md"
               />
-              <div className="font-semibold">Filter Fresh</div>
+              <div className="font-semibold">Filter Fresh Pools</div>
             </div>
-            <p className="mt-3 text-sm text-muted-foreground">
-              Clean filter. Clearer water. Healthier pool. $75 flat from
-              Temecula through San Diego County.
+            <p className="mt-3 font-display text-sm font-bold tracking-tight text-primary-navy">
+              Clean Filter. Clearer Water. Healthier Pool.
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              $75 flat pool filter cleaning. Temecula through San Diego County.
             </p>
           </div>
           <div>
@@ -46,7 +48,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="mt-10 border-t pt-6 text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Filter Fresh. All rights reserved.
+          © {new Date().getFullYear()} Filter Fresh Pools. All rights reserved.
         </div>
       </div>
     </footer>

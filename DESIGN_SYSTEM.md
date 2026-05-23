@@ -1,10 +1,10 @@
-# Filter Fresh — Brand Identity & Design System
+# Filter Fresh Pools — Brand Identity & Design System
 
-> **Clean filter. Clearer water. Healthier pool.** $75 flat pool filter cleaning across Temecula and San Diego County.
+> **Clean Filter. Clearer Water. Healthier Pool.** $75 flat pool filter cleaning across Temecula and San Diego County.
 
-This document is the source of truth for how Filter Fresh looks, reads, and feels. It pairs with `tailwind.config.ts` and `app/globals.css` — every token here is wired to a CSS variable so designers and engineers stay in sync.
+This document explains the brand. **For the canonical color, typography, radius, and shadow tokens, see [`brand-tokens.md`](./brand-tokens.md).** This file pairs with `tailwind.config.ts` and `app/globals.css`.
 
-> **Brand update.** The identity originally shipped with a fresh-green primary and a citrus accent, positioned closer to a service-trade vibe than a pool brand. The customer-supplied logo took the brand in a different direction: a circular badge featuring a sand-filter illustration, the wordmark "Filter Fresh Pools," a deep navy "Filter," a bright-blue gradient "Fresh," a navy script "Pools," and the tagline "CLEAN FILTER. CLEARER WATER. HEALTHIER POOL." The color system in this document and in code has been rebuilt to match.
+> **Current version (May 2026).** Brand rebuilt around the finalized Filter Fresh Pools logo: a deep navy "Filter" wordmark, a bright-blue gradient "Fresh," a navy script "Pools," and the tagline "Clean Filter. Clearer Water. Healthier Pool." The color system uses primary-navy `#0F2A57` for primary surfaces, a primary-blue gradient `#1565D8 → #2E8AE6` for CTAs, and cool blue-tinted neutrals for body and cards.
 
 ---
 
@@ -23,8 +23,8 @@ The customer logo is the canonical mark. It contains a sand-filter illustration 
 
 | Context | Pixel size | Notes |
 | --- | --- | --- |
-| Header | 44x44 | Sticky bar, paired with optional "Filter Fresh" text on `sm+` widths |
-| Footer | 36x36 | Paired with "Filter Fresh" text |
+| Header | 44x44 | Sticky bar, paired with optional "Filter Fresh Pools" text on `sm+` widths |
+| Footer | 36x36 | Paired with "Filter Fresh Pools" text |
 | Hero / marketing | 80x80 to 120x120 | Use only when the page is brand-centric |
 
 ### 1.3 Clear space and don'ts

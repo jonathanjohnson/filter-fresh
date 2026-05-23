@@ -7,7 +7,7 @@ target_keyword: spring pool filter cleaning
 search_volume: 0
 keyword_difficulty: 0
 published_at: 2026-05-30
-author: Filter Fresh team
+author: Filter Fresh Pools team
 featured_alt: Backyard pool in late March San Diego with crisp blue water, blooming bougainvillea overhanging one corner, and an open Pentair cartridge filter housing with freshly cleaned elements set on a clean towel beside it.
 faqs:
   - q: Why is spring filter cleaning more important than other seasons?
@@ -17,7 +17,7 @@ faqs:
   - q: Does my pool need a spring filter cleaning if I covered it for winter?
     a: A covered pool still loads its filter from circulating water during the winter run cycles, just slower than an uncovered pool. Plan on the same spring service. Skip it and you carry winter debris into your first warm-weather cleaning.
   - q: How much does a spring filter cleaning cost?
-    a: At Filter Fresh, the flat rate is $75 regardless of season. Many full-service pool companies in San Diego County charge a "spring opening" surcharge of $50 to $100. We do not. The price is the same in February as it is in August.
+    a: At Filter Fresh Pools, the flat rate is $75 regardless of season. Many full-service pool companies in San Diego County charge a "spring opening" surcharge of $50 to $100. We do not. The price is the same in February as it is in August.
 ---
 
 The first warm weekend in March is when most Southern California pool owners notice the water looks tired. The chlorine is fine. The pH is fine. The water is just a little hazy, the steps look a little dirty, and the pressure gauge has crept up since the last time anyone looked.

@@ -10,12 +10,12 @@ import { PHONE_DISPLAY, PHONE_TEL, PRICE_DISPLAY } from "@/lib/utils";
 /* -------------------------------------------------------------------------- */
 
 export const metadata: Metadata = {
-  title: "Pool Filter Cleaning, $75 Flat | Filter Fresh",
+  title: "Pool Filter Cleaning, $75 Flat | Filter Fresh Pools",
   description:
     "Pool filter cleaning specialists serving Temecula through all of San Diego County. Cartridge, DE, and sand filters cleaned, inspected, and pressure-tested for a flat $75. Half the price of full-service pool companies.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Pool Filter Cleaning, $75 Flat | Filter Fresh",
+    title: "Pool Filter Cleaning, $75 Flat | Filter Fresh Pools",
     description:
       "Cartridge, DE, and sand filters cleaned, inspected, and pressure-tested for a flat $75. Serving Temecula through San Diego County.",
     url: "/",
@@ -63,10 +63,13 @@ function Hero() {
     <section className="container py-16 md:py-24">
       <div className="mx-auto max-w-3xl text-center">
         <span className="ff-stamp">{PRICE_DISPLAY} flat. No upsells.</span>
-        <h1 className="mt-5 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+        <h1 className="mt-5 text-4xl font-bold md:text-5xl lg:text-6xl">
           Pool filter cleaning, {PRICE_DISPLAY} flat. By people who only clean pool filters.
         </h1>
-        <p className="mt-5 text-lg text-muted-foreground md:text-xl">
+        <p className="mt-4 font-display text-base font-bold tracking-tight text-primary-navy md:text-lg">
+          Clean Filter. Clearer Water. Healthier Pool.
+        </p>
+        <p className="mt-4 text-lg text-muted-foreground md:text-xl">
           Cartridge, DE, and sand filters cleaned, inspected, and pressure-tested. Serving Temecula
           through every city in San Diego County. Most jobs done in under an hour.
         </p>
@@ -288,7 +291,7 @@ function FilterTypes() {
             </div>
             <h3 className="mt-2 text-xl font-semibold">{t.name}</h3>
             <p className="mt-3 flex-1 text-sm text-muted-foreground">{t.body}</p>
-            <div className="mt-4 inline-flex w-fit items-center rounded-md bg-marine-100 px-2.5 py-1 text-xs font-semibold text-marine-700">
+            <div className="mt-4 ff-tag">
               {t.cadence}
             </div>
           </article>
@@ -424,7 +427,7 @@ function Comparison() {
             Specialist vs generalist
           </div>
           <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-            Why Filter Fresh beats a full-service pool company
+            Why Filter Fresh Pools beats a full-service pool company
           </h2>
           <p className="mt-4 text-muted-foreground">
             If you already have a weekly pool service you love, keep them. Add us for the filter
@@ -436,7 +439,7 @@ function Comparison() {
             <thead className="bg-secondary text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               <tr>
                 <th className="px-4 py-3 md:px-6">What you get</th>
-                <th className="px-4 py-3 text-foreground md:px-6">Filter Fresh</th>
+                <th className="px-4 py-3 text-foreground md:px-6">Filter Fresh Pools</th>
                 <th className="px-4 py-3 md:px-6">Typical pool company</th>
               </tr>
             </thead>
@@ -444,7 +447,7 @@ function Comparison() {
               {rows.map((r) => (
                 <tr key={r.label}>
                   <td className="px-4 py-3 font-medium md:px-6">{r.label}</td>
-                  <td className="px-4 py-3 font-semibold text-marine-700 md:px-6">{r.us}</td>
+                  <td className="px-4 py-3 font-semibold text-primary-navy md:px-6">{r.us}</td>
                   <td className="px-4 py-3 text-muted-foreground md:px-6">{r.them}</td>
                 </tr>
               ))}
@@ -600,7 +603,7 @@ function FaqSection() {
 function FinalCta() {
   return (
     <section className="container py-16 md:py-24">
-      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 text-center shadow-pop md:p-12">
+      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 text-center shadow-card-pop md:p-12">
         <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
           Book a {PRICE_DISPLAY} filter clean
         </h2>

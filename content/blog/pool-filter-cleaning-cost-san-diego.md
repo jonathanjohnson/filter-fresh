@@ -7,15 +7,15 @@ target_keyword: pool filter cleaning cost
 search_volume: 60
 keyword_difficulty: 0
 published_at: 2026-05-21
-author: Filter Fresh team
+author: Filter Fresh Pools team
 featured_alt: Service technician kneeling beside a Hayward SwimClear cartridge filter on a San Diego County pool equipment pad with cartridges removed and laid out on a clean towel.
 faqs:
   - q: How much does pool filter cleaning cost in San Diego?
-    a: As a standalone service, expect $125 to $175 for a cartridge clean and $150 to $225 for a DE clean from a full-service pool company. Filter Fresh charges $75 flat for any filter type. The price gap is structural, not promotional, and we explain exactly why in our pricing page.
+    a: As a standalone service, expect $125 to $175 for a cartridge clean and $150 to $225 for a DE clean from a full-service pool company. Filter Fresh Pools charges $75 flat for any filter type. The price gap is structural, not promotional, and we explain exactly why in our pricing page.
   - q: Why is filter cleaning expensive at most pool companies?
     a: Because filter cleaning is usually bundled into a monthly service plan that also covers chemistry, brushing, vacuuming, equipment monitoring, and back-office overhead. The filter line item has to cover a slice of all of that. Specialists who only do filter cleaning can price the line item closer to its actual cost.
   - q: Should I pay extra for DE filter cleaning?
-    a: With most pool companies, yes. DE takes longer than cartridge or sand, so they charge $25 to $75 more. Filter Fresh charges the same $75 flat for all three filter types. We absorb the time variance so customers do not have to do mental math when booking.
+    a: With most pool companies, yes. DE takes longer than cartridge or sand, so they charge $25 to $75 more. Filter Fresh Pools charges the same $75 flat for all three filter types. We absorb the time variance so customers do not have to do mental math when booking.
   - q: Is a $75 pool filter cleaning too cheap?
     a: No. It is what filter cleaning costs when the business doing it has one truck, one technician, one service, and no chemical retail margin to defend. The price is structural, not a loss leader. We explain the full math on our pricing page.
 ---
@@ -96,7 +96,7 @@ Commercial-grade filters, in-floor cleaning systems with integrated filter housi
 
 ### You need same-day emergency service
 
-Filter Fresh schedules same-week, sometimes same-day. If you need someone to show up in two hours because you are hosting an event tonight, expect to pay a premium with whichever operator can hit your window. Emergency pricing is a fair model.
+Filter Fresh Pools schedules same-week, sometimes same-day. If you need someone to show up in two hours because you are hosting an event tonight, expect to pay a premium with whichever operator can hit your window. Emergency pricing is a fair model.
 
 ## When paying less is a red flag
 

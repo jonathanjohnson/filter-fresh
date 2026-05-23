@@ -7,7 +7,7 @@ target_keyword: filter cleaning vs replacement
 search_volume: 30
 keyword_difficulty: 1
 published_at: 2026-05-24
-author: Filter Fresh team
+author: Filter Fresh Pools team
 featured_alt: Two pool cartridges side by side on a clean workbench. The left cartridge shows healthy pleats after cleaning, the right shows collapsed and deformed pleats with band damage, illustrating the visual difference between cleanable and end-of-life filter media.
 faqs:
   - q: How long do pool filter cartridges last?

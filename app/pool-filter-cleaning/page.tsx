@@ -13,12 +13,12 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://filterfresh.example.com";
 
 export const metadata: Metadata = {
-  title: "Pool Filter Cleaning: A Specialist's Complete Guide | Filter Fresh",
+  title: "Pool Filter Cleaning: A Specialist's Complete Guide | Filter Fresh Pools",
   description:
     "What pool filter cleaning is, how it works for cartridge, DE, and sand systems, when to do it, and why a $75 flat-rate clean prevents thousands of dollars in equipment damage. Serving Temecula through San Diego County.",
   alternates: { canonical: "/pool-filter-cleaning" },
   openGraph: {
-    title: "Pool Filter Cleaning, $75 Flat | Filter Fresh",
+    title: "Pool Filter Cleaning, $75 Flat | Filter Fresh Pools",
     description:
       "Specialist guide to cartridge, DE, and sand filter cleaning. Process, timing, signs, and pricing.",
     url: "/pool-filter-cleaning",
@@ -466,14 +466,14 @@ function WhatIncluded() {
             What we do for {PRICE_DISPLAY} vs what others bill at $150 to $200
           </h2>
           <p className="mt-5 text-muted-foreground">
-            The list below is what every Filter Fresh visit includes, regardless of system. Across
+            The list below is what every Filter Fresh Pools visit includes, regardless of system. Across
             the bottom is what you typically get when a full-service pool company adds a filter
             clean to a weekly service invoice for $150 to $200.
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
-            <div className="rounded-lg border bg-card p-6 shadow-pop">
-              <div className="text-sm font-semibold text-marine-700">
-                Filter Fresh, {PRICE_DISPLAY} flat
+            <div className="rounded-lg border bg-card p-6 shadow-card-pop">
+              <div className="text-sm font-semibold text-primary-navy">
+                Filter Fresh Pools, {PRICE_DISPLAY} flat
               </div>
               <ul className="mt-3 space-y-2 text-sm">
                 {us.map((item) => (
@@ -552,7 +552,7 @@ function WhatWeWontDo() {
 function BookingCta({ cities }: { cities: { slug: string; name: string }[] }) {
   return (
     <section className="container py-14 md:py-20">
-      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 text-center shadow-pop md:p-12">
+      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 text-center shadow-card-pop md:p-12">
         <SectionEyebrow>Book your cleaning</SectionEyebrow>
         <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
           {PRICE_DISPLAY} flat, anywhere from Temecula to the South Bay
@@ -625,7 +625,7 @@ const SERVICE_FAQS = [
     a: "The clearest signal is the pressure gauge. When it reads 8 to 10 PSI above the clean baseline, your filter is due. Cloudy water that does not respond to chemistry is the next clearest sign.",
   },
   {
-    q: "What is included in a $75 Filter Fresh cleaning?",
+    q: "What is included in a $75 Filter Fresh Pools cleaning?",
     a: "Full filter pull and inspection, commercial filter degreaser soak, hand rinse of every element, manifold and o-ring inspection, pressure test, clean PSI baseline, before and after photos, and a written inspection report.",
   },
 ];

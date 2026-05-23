@@ -7,7 +7,7 @@ target_keyword: pool filter pressure gauge
 search_volume: 1100
 keyword_difficulty: 0
 published_at: 2026-05-19
-author: Filter Fresh team
+author: Filter Fresh Pools team
 featured_alt: Close-up of a pool filter pressure gauge mounted on top of a Pentair Clean and Clear filter housing, dial pointing to 12 PSI, with the equipment pad and pump visible in soft focus behind it.
 faqs:
   - q: What pressure should a pool filter run at?

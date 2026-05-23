@@ -7,7 +7,7 @@ target_keyword: signs pool filter needs cleaning
 search_volume: 50
 keyword_difficulty: 0
 published_at: 2026-05-22
-author: Filter Fresh team
+author: Filter Fresh Pools team
 featured_alt: Pool surface showing slight haze and visible fine sediment on the steps, with the pressure gauge on the filter in the foreground reading 22 PSI in bright daylight.
 faqs:
   - q: How do I know if my pool filter is dirty?

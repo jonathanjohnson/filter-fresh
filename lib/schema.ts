@@ -3,7 +3,7 @@ import type { City } from "./cities";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://filterfresh.example.com";
 
 const BUSINESS = {
-  name: "Filter Fresh",
+  name: "Filter Fresh Pools",
   url: siteUrl,
   telephone: "+1-000-000-0000",
   priceRange: "$$",

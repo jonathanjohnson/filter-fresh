@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://filterfresh.example.com/schemas/extended-city.json",
-  "title": "Filter Fresh Extended City",
+  "title": "Filter Fresh Pools Extended City",
   "description": "Per-city data file used by /pool-filter-cleaning/[slug]. One file per city in content/cities/<slug>.json. Files starting with an underscore or named cities.json are ignored by the loader.",
   "type": "object",
   "additionalProperties": false,

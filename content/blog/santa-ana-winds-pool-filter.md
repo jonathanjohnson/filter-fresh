@@ -7,7 +7,7 @@ target_keyword: santa ana winds pool filter
 search_volume: 0
 keyword_difficulty: 0
 published_at: 2026-05-28
-author: Filter Fresh team
+author: Filter Fresh Pools team
 featured_alt: Late afternoon scene at a Ramona backyard pool during a Santa Ana event with dust visible in the air, palm fronds bent against the wind, and fine debris on the pool surface.
 faqs:
   - q: Do Santa Ana winds clog pool filters?
@@ -111,6 +111,6 @@ The simple rule we give customers in the inland cities:
 - **Two events:** schedule a cleaning within two weeks of the second event.
 - **Three or more events:** do not wait. Book service the week the wind dies down.
 
-A pre-emptive cleaning in mid-September catches the early events. A post-event cleaning in mid- to late October catches the rest. Most inland Filter Fresh customers settle into five visits a year (winter, pre-pollen, post-pollen, summer, post-Santa-Ana). Coastal customers usually run four.
+A pre-emptive cleaning in mid-September catches the early events. A post-event cleaning in mid- to late October catches the rest. Most inland Filter Fresh Pools customers settle into five visits a year (winter, pre-pollen, post-pollen, summer, post-Santa-Ana). Coastal customers usually run four.
 
 If you are not sure where you sit, the [pricing page](/pricing) covers both the standard and recurring rate. The [service guide](/pool-filter-cleaning) walks through what a real cleaning includes. When you are ready, [book a $75 cleaning](/book) and we will reset your baseline.

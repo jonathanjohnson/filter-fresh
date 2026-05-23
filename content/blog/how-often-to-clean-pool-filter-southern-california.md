@@ -7,7 +7,7 @@ target_keyword: how often to clean pool filter
 search_volume: 200
 keyword_difficulty: 0
 published_at: 2026-05-20
-author: Filter Fresh team
+author: Filter Fresh Pools team
 featured_alt: Top-down view of a cleaned cartridge filter element on a Southern California pool equipment pad with bougainvillea petals and palm fronds visible in the background.
 faqs:
   - q: How often should you clean a pool filter in summer?

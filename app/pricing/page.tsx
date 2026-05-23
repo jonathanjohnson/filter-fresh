@@ -9,12 +9,12 @@ const SITE_URL =
 const RECURRING_PRICE_DISPLAY = "$65";
 
 export const metadata: Metadata = {
-  title: "Pricing | $75 Flat Pool Filter Cleaning | Filter Fresh",
+  title: "Pricing | $75 Flat Pool Filter Cleaning | Filter Fresh Pools",
   description:
-    "Filter Fresh charges $75 flat per pool filter cleaning. Half what full-service pool companies bill for the same work. Here is exactly why, with a side-by-side comparison and a recurring discount to $65.",
+    "Filter Fresh Pools charges $75 flat per pool filter cleaning. Half what full-service pool companies bill for the same work. Here is exactly why, with a side-by-side comparison and a recurring discount to $65.",
   alternates: { canonical: "/pricing" },
   openGraph: {
-    title: "Pricing | $75 Flat Pool Filter Cleaning | Filter Fresh",
+    title: "Pricing | $75 Flat Pool Filter Cleaning | Filter Fresh Pools",
     description:
       "$75 flat per cleaning, $65 on a recurring quarterly schedule. The full math behind the price.",
     url: "/pricing",
@@ -251,7 +251,7 @@ function Comparison() {
           Side by side
         </div>
         <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-          Filter Fresh vs the rest of the local market
+          Filter Fresh Pools vs the rest of the local market
         </h2>
         <p className="mt-4 max-w-2xl text-muted-foreground">
           Same job, three different business models. The price gap is structural, not promotional.
@@ -261,7 +261,7 @@ function Comparison() {
             <thead className="bg-secondary text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               <tr>
                 <th className="px-4 py-3 md:px-6">What you get</th>
-                <th className="px-4 py-3 text-foreground md:px-6">Filter Fresh</th>
+                <th className="px-4 py-3 text-foreground md:px-6">Filter Fresh Pools</th>
                 <th className="px-4 py-3 md:px-6">Full-service pool company</th>
                 <th className="px-4 py-3 md:px-6">Big-box service chain</th>
               </tr>
@@ -270,7 +270,7 @@ function Comparison() {
               {rows.map((r) => (
                 <tr key={r.label}>
                   <td className="px-4 py-3 font-medium md:px-6">{r.label}</td>
-                  <td className="px-4 py-3 font-semibold text-marine-700 md:px-6">{r.us}</td>
+                  <td className="px-4 py-3 font-semibold text-primary-navy md:px-6">{r.us}</td>
                   <td className="px-4 py-3 text-muted-foreground md:px-6">{r.fullService}</td>
                   <td className="px-4 py-3 text-muted-foreground md:px-6">{r.chain}</td>
                 </tr>
@@ -414,7 +414,7 @@ function Recurring() {
   return (
     <section className="border-t bg-secondary/30">
       <div className="container py-14 md:py-20">
-        <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 shadow-pop md:p-12">
+        <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 shadow-card-pop md:p-12">
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
             <div>
               <div className="text-sm font-semibold uppercase tracking-wide text-primary">
@@ -520,7 +520,7 @@ function PricingFaq() {
 function FinalCta() {
   return (
     <section className="container py-14 md:py-20">
-      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 text-center shadow-pop md:p-12">
+      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 text-center shadow-card-pop md:p-12">
         <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
           {PRICE_DISPLAY} one time. {RECURRING_PRICE_DISPLAY} every quarter.
         </h2>

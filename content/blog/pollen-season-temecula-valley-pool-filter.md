@@ -7,7 +7,7 @@ target_keyword: pool filter pollen temecula
 search_volume: 0
 keyword_difficulty: 0
 published_at: 2026-05-27
-author: Filter Fresh team
+author: Filter Fresh Pools team
 featured_alt: Yellow oak pollen visible on the surface of a pool in Wolf Creek, Temecula, with a Pentair Clean and Clear filter pressure gauge in the foreground reading 18 PSI.
 faqs:
   - q: When is pollen season in Temecula Valley?

@@ -7,7 +7,7 @@ target_keyword: how a pool filter works
 search_volume: 20
 keyword_difficulty: 1
 published_at: 2026-05-23
-author: Filter Fresh team
+author: Filter Fresh Pools team
 featured_alt: Side-by-side cutaway view of three pool filters, a cartridge, a DE filter with grids visible, and a sand filter with bed and laterals, all on a clean white background.
 faqs:
   - q: How does a pool cartridge filter work?

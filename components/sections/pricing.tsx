@@ -12,7 +12,7 @@ const INCLUDED = [
 export function Pricing() {
   return (
     <section id="pricing" className="container py-16">
-      <div className="mx-auto max-w-2xl rounded-2xl border bg-card p-8 text-center shadow-pop">
+      <div className="mx-auto max-w-2xl rounded-2xl border bg-card p-8 text-center shadow-card-pop">
         <div className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
           Flat rate
         </div>

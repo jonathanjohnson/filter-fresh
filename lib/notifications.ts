@@ -9,7 +9,7 @@ export async function sendBookingConfirmationEmail(args: {
   bookingId: string;
 }): Promise<SendResult> {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.RESEND_FROM_EMAIL ?? "Filter Fresh <bookings@filterfresh.example.com>";
+  const from = process.env.RESEND_FROM_EMAIL ?? "Filter Fresh Pools <bookings@filterfresh.example.com>";
   if (!apiKey) return { sent: false, reason: "RESEND_API_KEY not set" };
   if (!args.to) return { sent: false, reason: "no recipient email" };
 
@@ -41,7 +41,7 @@ export async function sendBookingConfirmationEmail(args: {
       body: JSON.stringify({
         from,
         to: args.to,
-        subject: "Your Filter Fresh booking",
+        subject: "Your Filter Fresh Pools booking",
         html,
       }),
     });
