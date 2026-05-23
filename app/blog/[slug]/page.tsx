@@ -87,7 +87,7 @@ export default function BlogPostPage({ params }: { params: Params }) {
 
       <article className="container py-12 md:py-16">
         <div className="mx-auto max-w-3xl">
-          <div className="text-xs font-semibold uppercase tracking-wide text-primary">
+          <div className="text-xs font-semibold uppercase tracking-wide text-ff-brand">
             <Link href="/blog" className="hover:underline">
               Blog
             </Link>{" "}
@@ -96,7 +96,7 @@ export default function BlogPostPage({ params }: { params: Params }) {
           <h1 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">
             {post.title}
           </h1>
-          <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
+          <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ff-ink-2">
             <span>{post.author ?? "Filter Fresh Pools team"}</span>
             <span aria-hidden>•</span>
             <span>
@@ -124,18 +124,18 @@ export default function BlogPostPage({ params }: { params: Params }) {
                 {post.faqs.map((f) => (
                   <div key={f.q} className="rounded-lg border bg-card p-5">
                     <dt className="font-semibold">{f.q}</dt>
-                    <dd className="mt-2 text-sm text-muted-foreground">{f.a}</dd>
+                    <dd className="mt-2 text-sm text-ff-ink-2">{f.a}</dd>
                   </div>
                 ))}
               </dl>
             </section>
           )}
 
-          <section className="mt-12 rounded-2xl border bg-card p-8 text-center shadow-card-pop">
+          <section className="mt-12 rounded-2xl border bg-card p-8 text-center shadow-lg">
             <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
               {PRICE_DISPLAY} flat. Temecula to San Diego.
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
+            <p className="mx-auto mt-3 max-w-xl text-sm text-ff-ink-2">
               Cartridge, DE, and sand filters cleaned, inspected, and pressure-tested.
               Same-week scheduling.
             </p>
@@ -158,12 +158,12 @@ export default function BlogPostPage({ params }: { params: Params }) {
               <ul className="mt-4 grid gap-4 md:grid-cols-3">
                 {related.map((r) => (
                   <li key={r.slug} className="rounded-lg border bg-card p-5">
-                    <div className="text-xs font-semibold uppercase tracking-wide text-primary">
+                    <div className="text-xs font-semibold uppercase tracking-wide text-ff-brand">
                       {PILLAR_LABELS[r.pillar]}
                     </div>
                     <Link
                       href={`/blog/${r.slug}`}
-                      className="mt-2 block font-semibold hover:text-primary"
+                      className="mt-2 block font-semibold hover:text-ff-brand"
                     >
                       {r.title}
                     </Link>

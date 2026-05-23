@@ -1,184 +1,131 @@
-# Filter Fresh Pools — Brand Tokens
+# Filter Fresh Pools — Pool Day Design System
 
-Quick reference. Every token below is the single source of truth and must be referenced via Tailwind utilities or CSS variables. **Do not paste hex into components.**
+Source of truth for the visual system. Pairs with `tailwind.config.ts` and `app/globals.css`.
 
-- **Tailwind config:** `tailwind.config.ts`
-- **CSS variables:** `app/globals.css`
-- **Component reference:** `DESIGN_SYSTEM.md`
+## Colors (OKLCH source of truth)
 
----
+OKLCH values mirror exactly into both `tailwind.config.ts` and the `:root` block in `app/globals.css`. Hex approximations are for tools that cannot read OKLCH.
 
-## Color tokens
+| Token | OKLCH | Hex approx | Tailwind utility |
+| --- | --- | --- | --- |
+| `--ff-brand` | `oklch(54% 0.13 232)` | `#0d7eb8` | `bg-ff-brand`, `text-ff-brand` |
+| `--ff-brand-deep` | `oklch(38% 0.11 235)` | `#075180` | `bg-ff-brand-deep`, `text-ff-brand-deep` |
+| `--ff-brand-tint` | `oklch(96% 0.025 232)` | `#e9f4fb` | `bg-ff-brand-tint` |
+| `--ff-brand-soft` | `oklch(92% 0.045 232)` | `#d4e9f6` | `bg-ff-brand-soft` |
+| `--ff-ink` | `oklch(22% 0.025 240)` | `#1a2533` | `text-ff-ink` |
+| `--ff-ink-2` | `oklch(40% 0.02 240)` | `#4b5868` | `text-ff-ink-2` |
+| `--ff-ink-3` | `oklch(58% 0.015 240)` | `#7c8696` | `text-ff-ink-3` |
+| `--ff-line` | `oklch(88% 0.01 240)` | `#dcdfe4` | `border` (default) |
+| `--ff-line-2` | `oklch(94% 0.008 240)` | `#ecedf1` | `border-ff-line-2` |
+| `--ff-bg` | `oklch(98% 0.006 95)` | `#fbfaf6` | `bg-ff-bg` (warm cream) |
+| `--ff-paper` | `#ffffff` | `#ffffff` | `bg-ff-paper` (cards) |
+| `--ff-accent` | `oklch(86% 0.14 92)` | `#f4d04a` | `text-ff-accent` (sunny highlight, sparingly) |
+| `--ff-accent-deep` | `oklch(70% 0.16 65)` | `#cc8a2c` | star icons |
+| `--ff-success` | `oklch(62% 0.13 158)` | `#1e9f6e` | `text-ff-success` |
+| `--ff-danger` | `oklch(58% 0.18 25)` | `#d34a3a` | `text-ff-danger` |
 
-### Brand
-
-| Token | Hex | RGB | HSL | Tailwind utility |
-| --- | --- | --- | --- | --- |
-| primary-navy | `#0F2A57` | `15, 42, 87` | `217 70% 20%` | `bg-primary-navy`, `text-primary-navy`, `border-primary-navy` |
-| primary-blue | `#1565D8` | `21, 101, 216` | `215 83% 47%` | `bg-primary-blue`, `text-primary-blue` |
-| primary-blue-light | `#2E8AE6` | `46, 138, 230` | `209 79% 54%` | `bg-primary-blue-light`, `text-primary-blue-light` |
-| accent-sky | `#7FB8F0` | `127, 184, 240` | `209 80% 72%` | `bg-accent-sky`, `text-accent-sky` |
-| accent-splash | `#B8DAF5` | `184, 218, 245` | `208 76% 84%` | `bg-accent-splash`, `text-accent-splash` |
-
-### Neutrals
-
-| Token | Hex | Tailwind utility |
-| --- | --- | --- |
-| neutral-white | `#FFFFFF` | `bg-neutral-white` (or `bg-background`) |
-| neutral-off-white | `#F7FAFD` | `bg-neutral-off-white` (or `bg-secondary`) |
-| neutral-soft-blue | `#EAF2FB` | `bg-neutral-soft-blue` (or `bg-muted`) |
-
-### Text
-
-| Token | Hex | Tailwind utility |
-| --- | --- | --- |
-| text-primary | `#1A1F2E` | `text-foreground` |
-| text-secondary | `#4A5568` | `text-muted-foreground` |
-| text-muted | `#718096` | `text-subtle` |
-
-### Semantic
-
-| Token | Hex | Tailwind utility |
-| --- | --- | --- |
-| semantic-success | `#10B981` | `bg-success`, `text-success` |
-| semantic-warning | `#F59E0B` | `bg-warning`, `text-warning` |
-| semantic-error | `#EF4444` | `bg-destructive`, `text-destructive` |
-
-### Semantic role mapping
-
-Use the role tokens in components. They resolve to brand colors via CSS variables in `globals.css`.
-
-| Role | Resolves to |
-| --- | --- |
-| `bg-primary` | primary-navy `#0F2A57` |
-| `bg-accent` | primary-blue `#1565D8` |
-| `bg-background` | neutral-white `#FFFFFF` |
-| `bg-secondary` | neutral-off-white `#F7FAFD` |
-| `bg-muted` | neutral-soft-blue `#EAF2FB` |
-| `text-foreground` | text-primary `#1A1F2E` |
-| `text-muted-foreground` | text-secondary `#4A5568` |
-| `text-subtle` | text-muted `#718096` |
-| `ring` (focus ring) | primary-blue `#1565D8` |
-
----
-
-## Gradients
-
-Defined as CSS variables in `globals.css`. Use as Tailwind background utilities.
-
-| Token | Definition | Tailwind utility |
-| --- | --- | --- |
-| gradient-cta | `linear-gradient(135deg, #1565D8 0%, #2E8AE6 100%)` | `bg-cta-gradient` |
-| gradient-hero-overlay | `linear-gradient(180deg, rgba(15,42,87,0.85), rgba(15,42,87,0.4) 60%, rgba(15,42,87,0))` | `bg-hero-overlay` |
-
-The cta gradient is the canonical primary-button background. Do not hand-roll new gradients in components.
-
----
+The semantic aliases (`primary`, `accent`, `background`, `foreground`, `card`, `muted`, etc.) all resolve to one of the ff-* tokens via Tailwind theme mappings, so existing shadcn-style utilities continue to work.
 
 ## Typography
 
-| Role | Family | Weights | Loaded by | Notes |
-| --- | --- | --- | --- | --- |
-| Display (h1, h2, h3, h4) | **Sora** | 700, 800 | `next/font/google` in `app/layout.tsx` | Never italic. The logo owns the italic. |
-| Body | **Inter** | 400, 500, 600 | `next/font/google` in `app/layout.tsx` | Normal letter spacing. |
+Loaded via `next/font/google` in `app/layout.tsx`:
 
-### Letter spacing (applied by the type scale)
+| Role | Family | Weights | Use |
+| --- | --- | --- | --- |
+| Sans | Plus Jakarta Sans | 400 / 500 / 600 / 700 / 800 | UI, body, headings |
+| Serif | Newsreader (italic) | 400 / 500 | Italic editorial moments inside displays — never set whole bodies in serif |
+| Mono | JetBrains Mono | 400 / 500 / 600 | Prices, ZIPs, PSI numbers, timestamps |
 
-| Element | Tracking |
-| --- | --- |
-| h1 | `-0.02em` |
-| h2 | `-0.015em` |
-| h3 | `-0.015em` |
-| body | normal |
-| uppercase labels | `+0.05em` (Tailwind `tracking-wide`) |
+### Type ramp (component utilities in `globals.css`)
 
----
+| Class | Size / line / tracking / weight | Use |
+| --- | --- | --- |
+| `.ff-display` | clamp 48–72 / 0.96 / -0.035em / 700 (`.serif` flips inner span to italic) | Hero headlines |
+| `.ff-h1` | clamp 36–48 / 1.02 / -0.028em / 700 | Section h1 |
+| `.ff-h2` | clamp 26–36 / 1.08 / -0.022em / 700 | Section h2 |
+| `.ff-h3` | 24 / 1.15 / -0.015em / 600 | Card titles |
+| `.ff-h4` | 18 / 1.25 / -0.01em / 600 | Step / row titles |
+| `.ff-body-lg` | 19 / 1.5 / 0 / 400 (`color: ink-2`) | Hero subhead |
+| `.ff-body` | 16 / 1.55 / 0 / 400 (`color: ink-2`) | Default body |
+| `.ff-small` | 13 / 1.45 / 0 / 400 (`color: ink-3`) | Captions |
+| `.ff-eyebrow` | 11 / 0.14em / uppercase / 600 (brand-deep) | Section eyebrows |
+| `.ff-mono` | inherit size, tabular figures | Prices, ZIP, PSI |
 
 ## Radii
 
-| Use | Token | Pixels |
+| Token | Value | Use |
 | --- | --- | --- |
-| Pills (buttons, badges) | `rounded-pill` | 9999px |
-| Cards | `rounded-2xl` | 16px |
-| Form inputs, small surfaces | `rounded-md` | 8px |
-
----
+| `rounded-sm` | 8px | Inputs, small chips |
+| `rounded-lg` | 14px | Default cards |
+| `rounded-2xl` | 22px | Hero cards, mobile artboards |
+| `rounded-pill` | 9999px | Buttons, pills |
 
 ## Shadows
 
-| Use | Token | Definition |
+| Token | Definition | Use |
 | --- | --- | --- |
-| Default surfaces | `shadow-sm` / `shadow` | navy-tinted 1px and 3px |
-| **Cards (default)** | `shadow-card` | `0 1px 3px rgba(15,42,87,0.06), 0 8px 24px rgba(15,42,87,0.04)` |
-| Cards on hover | `shadow-card-hover` | `0 4px 10px rgba(15,42,87,0.08), 0 16px 32px rgba(15,42,87,0.06)` |
-| Emphasis cards (pricing, final CTA) | `shadow-card-pop` | `0 4px 14px rgba(15,42,87,0.10), 0 24px 48px rgba(15,42,87,0.08)` |
-| Primary button hover | `shadow-btn-hover` | `0 8px 20px rgba(21,101,216,0.35)` (primary-blue glow) |
+| `shadow-sm` | layered hairline + 1px | Default surfaces |
+| `shadow-md` | + 8px diffuse | Hover, dropdowns |
+| `shadow-lg` | + 24px diffuse | Hero cards, final-CTA glass card, big price card |
+| `shadow-glow` | 6px brand glow | Logo mark only |
 
----
+## Buttons (`.ff-btn`)
 
-## Component contracts
+- Pill-shaped, `border-radius: 999px`.
+- Heights: 36 (sm) / 48 (default) / 56 (lg).
+- Padding: `0 14px` / `0 22px` / `0 28px`.
+- Font weights and sizes: 13 / 15 / 16, all 600.
+- `--primary` brand fill with glow; `--ghost` white bg with line border; `--text` chrome-less.
+- `:active` translates Y by 1px (no transition).
 
-### Primary button
+Use the `Button` component or the `.ff-btn` utility directly.
 
-- `bg-cta-gradient` (background)
-- `text-white`
-- `rounded-pill` (9999px)
-- Height: `h-12` (48px) default, `h-14` (56px) lg, `h-10` (40px) sm
-- Padding: `px-8` (32px) default, `px-5` (20px) sm
-- `font-semibold`
-- Hover: `shadow-btn-hover`, `brightness-105`
-- Source: `components/ui/button.tsx → variant="default"`
+## Pills (`.ff-pill`)
 
-### Secondary button (outline)
+Brand-soft background, brand-deep text, 12px / 600 / +0.01em tracking, 5/11 padding, 6px round dot prefix. Variants via `data-tone="accent"` (sunny yellow tint) or `data-tone="ink"` (neutral).
 
-- `bg-card` (white)
-- `text-primary-navy`
-- `border-[1.5px] border-primary-navy`
-- Same `rounded-pill`, sizing, weight as primary
-- Hover: `bg-muted`
-- Source: `components/ui/button.tsx → variant="outline"`
+Use the `Pill` component.
 
-### Card
+## Cards (`.ff-card`)
 
-- `bg-card` (white)
-- `rounded-2xl`
-- `border` (resolves to `neutral-soft-blue`)
-- `shadow-card`
-- Padding: `p-6` for compact cards, `p-8` for spacious
-- Convenience: `.ff-card` utility in `globals.css`
+White (`bg-ff-paper`), 1px `--ff-line` border, 14px radius, `shadow-sm`. Add `.padded` for 28px internal padding.
 
-### Pill badges
+## Sections (`.ff-section`)
 
-- **Stamp** (`.ff-stamp`): `bg-accent-sky/30 text-primary-navy rounded-pill`, uppercase, `letter-spacing: 0.05em`. Use for hero "$75 FLAT" badge.
-- **Tag** (`.ff-tag`): `bg-muted text-primary-navy rounded-pill`, smaller padding, uppercase, +0.05em tracking. Use for cadence chips and tier labels.
+96/64 padding desktop, 36/22 mobile (via `clamp`). Modifiers:
+- `.tint` — `bg-ff-brand-tint` for alternating sections.
+- `.deep` — dark navy (`bg-ff-ink`) with light text; flips `.ff-body`, `.ff-eyebrow`.
 
-### Section backgrounds
+## Italic-serif headline emphasis
 
-Alternate body sections between:
+The motif used everywhere: short emphasis words ("Always.", "No upsells.", "Keep them.", "$75") flip from sans 700 to serif italic 400. In JSX: wrap with `<span className="serif">` inside `.ff-display`, or use `font-serif font-normal italic` Tailwind classes.
 
-- Default: `bg-background` (neutral-white)
-- Alt: `bg-secondary` (neutral-off-white)
-- Emphasis (pricing comparison, etc.): `bg-muted` (neutral-soft-blue)
+## Mono usage rule
 
-Convenience helpers: `.ff-section-alt` and `.ff-section-emphasis`.
+Only for prices, ZIPs, PSI, and timestamps. Do not use for body, navigation, or labels.
 
----
+## No emoji except `☀` in the footer
 
-## Brand name and tagline
+Everything else is inline SVG or text.
 
-- **Brand name:** `Filter Fresh Pools`. Use the full name everywhere (LocalBusiness schema, meta titles, headers, footer, alt text, body copy). Casual abbreviation to "Filter Fresh" is not used.
-- **Tagline:** `Clean Filter. Clearer Water. Healthier Pool.` Title case, three sentences, terminal periods.
-- **Where it appears:** footer brand block (primary placement), hero subhead under the H1 (homepage), and as a recurring signature wherever a brand block needs a one-line summary.
+## Animation
 
----
+All transitions use `cubic-bezier(0.2, 0.7, 0.3, 1)` (exposed as `ease-pool` in Tailwind and `--ease-pool` in CSS).
 
-## Audit checklist
+- Button hover: `background 0.15s`; active: `translateY(1px)` instant.
+- Card hover (links): tint background fade 0.15s.
+- How-it-works progress bar: `width 0.45s` ease-pool.
+- Accordion: `max-height 0.3s, opacity 0.25s, margin 0.2s`.
 
-Before merging any UI change, confirm:
+## TOC anchor offsets
 
-- No inline hex values in `app/` or `components/`.
-- No references to old brand class names (`fresh-*`, `citrus-*`, `marine-*`, `splash-*`).
-- All "Filter Fresh" mentions in body copy and metadata are "Filter Fresh Pools".
-- Buttons use `Button` from `components/ui/button.tsx` (pill, gradient, navy outline).
-- Cards use `rounded-2xl` and `shadow-card`, not ad-hoc shadows.
-- Headings are display-weight (700+) and never italic.
+Use `scroll-margin-top: 90px` on h2/h3 with ids — already set in `globals.css`. Do not use `scrollIntoView`.
+
+## Audit checklist before merging UI
+
+- No inline hex outside `tailwind.config.ts` and `globals.css`.
+- No references to the retired token families (`primary-navy`, `primary-blue`, `cta-gradient`, `marine-*`, `splash-*`, `fresh-*`, `citrus-*`).
+- All "Filter Fresh" mentions in copy and metadata are "Filter Fresh Pools".
+- Buttons use `Button` or `.ff-btn`. Cards use `.ff-card`. Pills use `Pill` or `.ff-pill`.
+- Italic-serif emphasis is present on hero displays and key callouts.
+- Mono used only for prices/ZIP/PSI/timestamps.

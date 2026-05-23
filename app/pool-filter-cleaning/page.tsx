@@ -75,7 +75,7 @@ export default function PoolFilterCleaningPage() {
 
 function SectionEyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="text-sm font-semibold uppercase tracking-wide text-primary">
+    <div className="text-sm font-semibold uppercase tracking-wide text-ff-brand">
       {children}
     </div>
   );
@@ -83,9 +83,9 @@ function SectionEyebrow({ children }: { children: React.ReactNode }) {
 
 function Paa({ q, children }: { q: string; children: React.ReactNode }) {
   return (
-    <div className="mt-6 rounded-lg border-l-4 border-primary bg-secondary/40 p-5">
+    <div className="mt-6 rounded-lg border-l-4 border-primary bg-ff-brand-tint p-5">
       <div className="text-sm font-semibold">{q}</div>
-      <div className="mt-1 text-sm text-muted-foreground">{children}</div>
+      <div className="mt-1 text-sm text-ff-ink-2">{children}</div>
     </div>
   );
 }
@@ -102,14 +102,14 @@ function Header() {
         <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
           Pool filter cleaning, explained by people who do nothing else
         </h1>
-        <p className="mt-5 text-lg text-muted-foreground">
+        <p className="mt-5 text-lg text-ff-ink-2">
           Your pool filter is the one piece of equipment that separates clean water from a slow,
           expensive failure. Every drop of water in your pool passes through it. Sunscreen, body
           oils, sweat, pollen, dust, decomposing leaves, algae spores, microscopic biofilm, all of
           it gets caught in the filter element so it does not end up in your pump, your heater, or
           your skin.
         </p>
-        <p className="mt-4 text-muted-foreground">
+        <p className="mt-4 text-ff-ink-2">
           When the filter is loaded up and nobody cleans it, that workload moves upstream. The pump
           motor strains. The heater starves for flow. Your water turns hazy and chlorine demand
           climbs. This page covers what cleaning actually does, why hosing off a cartridge in the
@@ -138,14 +138,14 @@ function Header() {
 
 function WhyItMatters() {
   return (
-    <section className="border-t bg-secondary/30">
+    <section className="border-t bg-ff-brand-tint">
       <div className="container py-14 md:py-20">
         <div className="mx-auto max-w-3xl">
           <SectionEyebrow>Why it matters</SectionEyebrow>
           <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
             A clogged filter is the cheapest way to destroy a pump or heater
           </h2>
-          <p className="mt-5 text-muted-foreground">
+          <p className="mt-5 text-ff-ink-2">
             A clean filter creates very little resistance. A dirty filter creates a lot. As pleats
             or grids load up with debris, the pressure on the gauge rises and the flow rate drops.
             Your pump motor still tries to push the same volume, so it pulls more amps, runs
@@ -153,7 +153,7 @@ function WhyItMatters() {
             flow drops below a threshold. When that sensor trips repeatedly, the gas valve and
             ignition assembly cycle in ways they were not designed to.
           </p>
-          <p className="mt-4 text-muted-foreground">
+          <p className="mt-4 text-ff-ink-2">
             The numbers are not abstract. A pump motor replacement on a Hayward TriStar or Pentair
             IntelliFlo3 runs $400 to $1,200 in parts and labor. A heater heat exchanger eaten by
             poor flow and acidic water runs $1,500 to $3,000. Replastering a pool that has been
@@ -195,7 +195,7 @@ function CartridgeProcess() {
         <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
           Cartridge filter cleaning, step by step
         </h2>
-        <p className="mt-5 text-muted-foreground">
+        <p className="mt-5 text-ff-ink-2">
           Cartridge filters are the most common system in Southern California. Pentair Clean and
           Clear, Hayward SwimClear, Sta-Rite System 3, and Jandy CV all use pleated polyester
           elements that trap particles down to 15 to 20 microns. The single biggest mistake other
@@ -208,7 +208,7 @@ function CartridgeProcess() {
               key={i}
               className="rounded-lg border bg-card p-4 text-sm"
             >
-              <span className="font-display font-bold text-primary">
+              <span className="font-serif font-bold text-ff-brand">
                 {String(i + 1).padStart(2, "0")}.
               </span>{" "}
               {s}
@@ -243,14 +243,14 @@ function DeProcess() {
     "Pump on. Air bled. Fresh DE charged through the skimmer at the manufacturer-spec dose for the filter square footage. New clean PSI logged.",
   ];
   return (
-    <section className="border-t bg-secondary/30">
+    <section className="border-t bg-ff-brand-tint">
       <div className="container py-14 md:py-20">
         <div className="mx-auto max-w-3xl">
           <SectionEyebrow>DE filters</SectionEyebrow>
           <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
             DE filter cleaning, grids and all
           </h2>
-          <p className="mt-5 text-muted-foreground">
+          <p className="mt-5 text-ff-ink-2">
             Diatomaceous earth filters give the finest filtration available for residential pools.
             They catch particles down to 3 microns, which is roughly five times finer than a
             cartridge and ten times finer than sand. The trade is service complexity. DE grids have
@@ -262,7 +262,7 @@ function DeProcess() {
                 key={i}
                 className="rounded-lg border bg-card p-4 text-sm"
               >
-                <span className="font-display font-bold text-primary">
+                <span className="font-serif font-bold text-ff-brand">
                   {String(i + 1).padStart(2, "0")}.
                 </span>{" "}
                 {s}
@@ -293,12 +293,12 @@ function SandService() {
         <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
           Sand filter service and when to replace the bed
         </h2>
-        <p className="mt-5 text-muted-foreground">
+        <p className="mt-5 text-ff-ink-2">
           Sand filters are the lowest-effort system to maintain on a weekly basis and the most
           misunderstood on a multi-year basis. Backwashing handles bulk debris. It does nothing for
           the sand itself, which slowly degrades.
         </p>
-        <p className="mt-4 text-muted-foreground">
+        <p className="mt-4 text-ff-ink-2">
           A standard service from us includes a backwash and rinse, a chemical sand cleanse with a
           dedicated sand filter degreaser, a multiport valve check for sticking selectors and worn
           spider gaskets, a lateral inspection through the drain port where accessible, and a sand
@@ -307,7 +307,7 @@ function SandService() {
         <h3 className="mt-8 text-xl font-semibold">
           Why we recommend a sand bed swap every five to seven years
         </h3>
-        <p className="mt-3 text-muted-foreground">
+        <p className="mt-3 text-ff-ink-2">
           Sand grains start life with sharp edges. Those edges are what trap fine particles. After
           five to seven years of constant water flow, the grains tumble round, like beach sand. A
           rounded bed channels the water through the same paths and lets fine particulates pass.
@@ -340,14 +340,14 @@ function Cadence() {
     },
   ];
   return (
-    <section className="border-t bg-secondary/30">
+    <section className="border-t bg-ff-brand-tint">
       <div className="container py-14 md:py-20">
         <div className="mx-auto max-w-3xl">
           <SectionEyebrow>How often to clean</SectionEyebrow>
           <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
             Quarterly is the floor. Monthly is the peak-season standard.
           </h2>
-          <p className="mt-5 text-muted-foreground">
+          <p className="mt-5 text-ff-ink-2">
             The single best signal is the pressure gauge on top of the filter. When it reads 8 to
             10 PSI above the clean baseline we log on the housing at every visit, the filter is
             ready for service. Below that, here are the general windows for Southern California
@@ -355,7 +355,7 @@ function Cadence() {
           </p>
           <div className="mt-6 overflow-hidden rounded-lg border bg-card">
             <table className="w-full text-sm">
-              <thead className="bg-secondary text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              <thead className="bg-ff-brand-tint text-left text-xs font-semibold uppercase tracking-wide text-ff-ink-2">
                 <tr>
                   <th className="px-4 py-3 md:px-6">Filter type</th>
                   <th className="px-4 py-3 md:px-6">Normal season</th>
@@ -366,8 +366,8 @@ function Cadence() {
                 {rows.map((r) => (
                   <tr key={r.type}>
                     <td className="px-4 py-3 font-semibold md:px-6">{r.type}</td>
-                    <td className="px-4 py-3 text-muted-foreground md:px-6">{r.normal}</td>
-                    <td className="px-4 py-3 text-muted-foreground md:px-6">{r.heavy}</td>
+                    <td className="px-4 py-3 text-ff-ink-2 md:px-6">{r.normal}</td>
+                    <td className="px-4 py-3 text-ff-ink-2 md:px-6">{r.heavy}</td>
                   </tr>
                 ))}
               </tbody>
@@ -417,7 +417,7 @@ function SignsNow() {
         <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
           Six signals your filter is overdue
         </h2>
-        <p className="mt-5 text-muted-foreground">
+        <p className="mt-5 text-ff-ink-2">
           If three or more of these are true at once, you are past due, and the longer it sits the
           more your pump and heater absorb damage that nobody bills back to the filter.
         </p>
@@ -425,7 +425,7 @@ function SignsNow() {
           {signs.map((s) => (
             <li key={s.title} className="rounded-lg border bg-card p-5">
               <div className="font-semibold">{s.title}</div>
-              <p className="mt-1 text-sm text-muted-foreground">{s.body}</p>
+              <p className="mt-1 text-sm text-ff-ink-2">{s.body}</p>
             </li>
           ))}
         </ul>
@@ -458,37 +458,37 @@ function WhatIncluded() {
     "Frequently a soft pitch for a weekly service contract",
   ];
   return (
-    <section className="border-t bg-secondary/30">
+    <section className="border-t bg-ff-brand-tint">
       <div className="container py-14 md:py-20">
         <div className="mx-auto max-w-3xl">
           <SectionEyebrow>What {PRICE_DISPLAY} buys</SectionEyebrow>
           <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
             What we do for {PRICE_DISPLAY} vs what others bill at $150 to $200
           </h2>
-          <p className="mt-5 text-muted-foreground">
+          <p className="mt-5 text-ff-ink-2">
             The list below is what every Filter Fresh Pools visit includes, regardless of system. Across
             the bottom is what you typically get when a full-service pool company adds a filter
             clean to a weekly service invoice for $150 to $200.
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
-            <div className="rounded-lg border bg-card p-6 shadow-card-pop">
-              <div className="text-sm font-semibold text-primary-navy">
+            <div className="rounded-lg border bg-card p-6 shadow-lg">
+              <div className="text-sm font-semibold text-ff-brand-deep">
                 Filter Fresh Pools, {PRICE_DISPLAY} flat
               </div>
               <ul className="mt-3 space-y-2 text-sm">
                 {us.map((item) => (
                   <li key={item} className="flex gap-2">
-                    <span className="mt-1 inline-block h-1.5 w-1.5 flex-none rounded-full bg-primary" />
+                    <span className="mt-1 inline-block h-1.5 w-1.5 flex-none rounded-full bg-ff-brand" />
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
             <div className="rounded-lg border bg-card p-6">
-              <div className="text-sm font-semibold text-muted-foreground">
+              <div className="text-sm font-semibold text-ff-ink-2">
                 Typical pool company, $150 to $200
               </div>
-              <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+              <ul className="mt-3 space-y-2 text-sm text-ff-ink-2">
                 {them.map((item) => (
                   <li key={item} className="flex gap-2">
                     <span className="mt-1 inline-block h-1.5 w-1.5 flex-none rounded-full bg-muted-foreground" />
@@ -524,7 +524,7 @@ function WhatWeWontDo() {
         <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
           We are filter specialists. Here is everything else we do not touch.
         </h2>
-        <p className="mt-5 text-muted-foreground">
+        <p className="mt-5 text-ff-ink-2">
           Doing one job better than anyone else is the entire business model. Adding services would
           mean adding inventory, training, and a markup we would have to pass on. So we do not.
         </p>
@@ -536,7 +536,7 @@ function WhatWeWontDo() {
             </li>
           ))}
         </ul>
-        <p className="mt-6 text-sm text-muted-foreground">
+        <p className="mt-6 text-sm text-ff-ink-2">
           If you need any of the above, we will refer you to a trusted pool tech in your area. We
           work alongside dozens of them and have no problem telling you which ones are honest.
         </p>
@@ -552,19 +552,19 @@ function WhatWeWontDo() {
 function BookingCta({ cities }: { cities: { slug: string; name: string }[] }) {
   return (
     <section className="container py-14 md:py-20">
-      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 text-center shadow-card-pop md:p-12">
+      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 text-center shadow-lg md:p-12">
         <SectionEyebrow>Book your cleaning</SectionEyebrow>
         <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
           {PRICE_DISPLAY} flat, anywhere from Temecula to the South Bay
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
+        <p className="mx-auto mt-4 max-w-xl text-ff-ink-2">
           We serve Temecula, Murrieta, Menifee, Wildomar, Lake Elsinore, Canyon Lake, and every
           city in San Diego County. Same-week scheduling is the standard, and next-day slots open
           more often than you would expect.
         </p>
         <a
           href={`tel:${PHONE_TEL}`}
-          className="mt-6 inline-block font-display text-3xl font-bold tracking-tight tabular-nums md:text-4xl"
+          className="mt-6 inline-block font-serif text-3xl font-bold tracking-tight tabular-nums md:text-4xl"
         >
           {PHONE_DISPLAY}
         </a>
@@ -586,7 +586,7 @@ function BookingCta({ cities }: { cities: { slug: string; name: string }[] }) {
               <li key={c.slug}>
                 <Link
                   href={`/${c.slug}`}
-                  className="rounded-full border bg-background px-3 py-1 text-muted-foreground hover:text-primary"
+                  className="rounded-full border bg-background px-3 py-1 text-ff-ink-2 hover:text-ff-brand"
                 >
                   {c.name}
                 </Link>

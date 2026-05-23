@@ -140,13 +140,13 @@ function Header({ city: c }: { city: ExtendedCity }) {
   return (
     <section className="container py-14 md:py-20">
       <div className="mx-auto max-w-3xl">
-        <div className="text-sm font-semibold uppercase tracking-wide text-primary">
+        <div className="text-sm font-semibold uppercase tracking-wide text-ff-brand">
           {c.county} service area
         </div>
         <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
           Pool Filter Cleaning in {c.name}, CA
         </h1>
-        <p className="mt-5 text-lg text-muted-foreground">
+        <p className="mt-5 text-lg text-ff-ink-2">
           {c.name} sits near {c.local_landmark}, and the local mix of weather and
           landscape is rough on pool filters. {c.climate_note.split(".")[0]}. We
           service cartridge, DE, and sand systems across all of {c.name} for a flat{" "}
@@ -175,23 +175,23 @@ function Header({ city: c }: { city: ExtendedCity }) {
 
 function WhyHere({ city: c }: { city: ExtendedCity }) {
   return (
-    <section className="border-t bg-secondary/30">
+    <section className="border-t bg-ff-brand-tint">
       <div className="container py-14 md:py-20">
         <div className="mx-auto max-w-3xl">
-          <div className="text-sm font-semibold uppercase tracking-wide text-primary">
+          <div className="text-sm font-semibold uppercase tracking-wide text-ff-brand">
             Why it matters in {c.name}
           </div>
           <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
             What the local climate and landscape do to your filter
           </h2>
-          <p className="mt-5 text-muted-foreground">
+          <p className="mt-5 text-ff-ink-2">
             Filter cleaning is a maintenance task everywhere in California. In{" "}
             {c.name} it is a higher-priority maintenance task than most homeowners
             realize.
           </p>
-          <p className="mt-4 text-muted-foreground">{c.climate_note}</p>
-          <p className="mt-4 text-muted-foreground">{c.pool_density_note}</p>
-          <p className="mt-4 text-muted-foreground">
+          <p className="mt-4 text-ff-ink-2">{c.climate_note}</p>
+          <p className="mt-4 text-ff-ink-2">{c.pool_density_note}</p>
+          <p className="mt-4 text-ff-ink-2">
             Peak filter loading season in {c.name} runs May through October, with a
             secondary pollen-driven spike from late January through April. Cartridge
             pressure climbs 3 to 5 PSI above clean baseline within six to eight weeks
@@ -214,13 +214,13 @@ function Neighborhoods({ city: c }: { city: ExtendedCity }) {
   return (
     <section className="container py-14 md:py-20">
       <div className="mx-auto max-w-3xl">
-        <div className="text-sm font-semibold uppercase tracking-wide text-primary">
+        <div className="text-sm font-semibold uppercase tracking-wide text-ff-brand">
           Neighborhoods we cover
         </div>
         <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
           Service across every {c.name} subdivision
         </h2>
-        <p className="mt-5 text-muted-foreground">
+        <p className="mt-5 text-ff-ink-2">
           Filter Fresh Pools runs a regular route through {c.name}. The neighborhoods below
           are where we service the most pools. If you live outside this list but
           inside city limits, ask. We routinely take jobs anywhere within {c.name},
@@ -230,7 +230,7 @@ function Neighborhoods({ city: c }: { city: ExtendedCity }) {
           {c.neighborhoods.map((n) => (
             <li
               key={n}
-              className="rounded-md border bg-card px-3 py-2 text-foreground"
+              className="rounded-md border bg-card px-3 py-2 text-ff-ink"
             >
               {n}
             </li>
@@ -247,16 +247,16 @@ function Neighborhoods({ city: c }: { city: ExtendedCity }) {
 
 function ServiceSummary() {
   return (
-    <section className="border-t bg-secondary/30">
+    <section className="border-t bg-ff-brand-tint">
       <div className="container py-14 md:py-20">
         <div className="mx-auto max-w-3xl">
-          <div className="text-sm font-semibold uppercase tracking-wide text-primary">
+          <div className="text-sm font-semibold uppercase tracking-wide text-ff-brand">
             What a Filter Fresh Pools visit looks like
           </div>
           <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
             The {PRICE_DISPLAY} service, briefly
           </h2>
-          <p className="mt-5 text-muted-foreground">
+          <p className="mt-5 text-ff-ink-2">
             We pull every cartridge, DE grid, or open the sand multiport, depending on
             your system. Elements go into a commercial filter degreaser. We hand
             rinse, inspect the manifold, replace worn o-rings, reassemble, pressure
@@ -264,13 +264,13 @@ function ServiceSummary() {
             visits are done in 45 to 60 minutes. DE systems run closer to 75 because
             we pull the grid set rather than relying on a backwash.
           </p>
-          <p className="mt-4 text-muted-foreground">
+          <p className="mt-4 text-ff-ink-2">
             For the full step-by-step breakdown across cartridge, DE, and sand
             systems, including the equipment-damage math behind why you do not want
             to defer this, read our{" "}
             <Link
               href="/pool-filter-cleaning"
-              className="font-semibold text-primary hover:underline"
+              className="font-semibold text-ff-brand hover:underline"
             >
               complete pool filter cleaning guide
             </Link>
@@ -289,16 +289,16 @@ function ServiceSummary() {
 function PricingCallout({ city: c }: { city: ExtendedCity }) {
   return (
     <section className="container py-14 md:py-20">
-      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 shadow-card-pop md:p-10">
+      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 shadow-lg md:p-10">
         <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
           <div>
-            <div className="text-sm font-semibold uppercase tracking-wide text-primary">
+            <div className="text-sm font-semibold uppercase tracking-wide text-ff-brand">
               {c.name} pricing
             </div>
             <h2 className="mt-2 text-2xl font-bold tracking-tight md:text-3xl">
               {PRICE_DISPLAY} flat. Half the local going rate.
             </h2>
-            <p className="mt-3 text-sm text-muted-foreground">
+            <p className="mt-3 text-sm text-ff-ink-2">
               Full-service pool companies serving {c.name} typically bill a filter
               clean at $150 to $200 as part of a weekly route, or $130 to $170 as a
               one-off visit. Filter Fresh Pools charges {PRICE_DISPLAY} flat regardless of
@@ -307,10 +307,10 @@ function PricingCallout({ city: c }: { city: ExtendedCity }) {
             </p>
           </div>
           <div className="text-center md:text-right">
-            <div className="font-display text-5xl font-bold tabular-nums">
+            <div className="font-serif text-5xl font-bold tabular-nums">
               {PRICE_DISPLAY}
             </div>
-            <div className="mt-1 text-xs uppercase tracking-wide text-muted-foreground">
+            <div className="mt-1 text-xs uppercase tracking-wide text-ff-ink-2">
               Flat rate, all of {c.name}
             </div>
           </div>
@@ -328,10 +328,10 @@ function Zips({ city: c }: { city: ExtendedCity }) {
   return (
     <section className="container py-10">
       <div className="mx-auto max-w-3xl">
-        <div className="text-sm font-semibold uppercase tracking-wide text-primary">
+        <div className="text-sm font-semibold uppercase tracking-wide text-ff-brand">
           ZIP codes served
         </div>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <p className="mt-2 text-sm text-ff-ink-2">
           We cover every {c.name} ZIP code. If your address sits on the border with a
           neighboring city, send the full address when you book and we will route it
           correctly.
@@ -340,7 +340,7 @@ function Zips({ city: c }: { city: ExtendedCity }) {
           {c.zips.map((z) => (
             <li
               key={z}
-              className="rounded-md border bg-card px-3 py-1 font-mono text-foreground"
+              className="rounded-md border bg-card px-3 py-1 font-mono text-ff-ink"
             >
               {z}
             </li>
@@ -364,10 +364,10 @@ function Reviews({
 }) {
   if (testimonials.length === 0) return null;
   return (
-    <section className="border-t bg-secondary/30">
+    <section className="border-t bg-ff-brand-tint">
       <div className="container py-14 md:py-20">
         <div className="mx-auto max-w-3xl">
-          <div className="text-sm font-semibold uppercase tracking-wide text-primary">
+          <div className="text-sm font-semibold uppercase tracking-wide text-ff-brand">
             Reviews from {c.name} and nearby
           </div>
           <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
@@ -382,7 +382,7 @@ function Reviews({
                 <blockquote className="flex-1 text-sm leading-relaxed">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
-                <div className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                <div className="mt-4 text-xs font-semibold uppercase tracking-wide text-ff-ink-2">
                   {t.name}, {t.city}
                 </div>
               </li>
@@ -403,7 +403,7 @@ function MapBlock({ city: c }: { city: ExtendedCity }) {
   return (
     <section className="container py-14 md:py-20">
       <div className="mx-auto max-w-4xl">
-        <div className="text-sm font-semibold uppercase tracking-wide text-primary">
+        <div className="text-sm font-semibold uppercase tracking-wide text-ff-brand">
           Service area map
         </div>
         <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
@@ -418,7 +418,7 @@ function MapBlock({ city: c }: { city: ExtendedCity }) {
             className="h-[360px] w-full md:h-[420px]"
           />
         </div>
-        <p className="mt-4 text-sm text-muted-foreground">
+        <p className="mt-4 text-sm text-ff-ink-2">
           Service radius covers all of {c.name} and surrounding {c.county} cities.
           For addresses outside this radius we still take the call. We will tell you
           honestly if it makes route sense or recommend a trusted operator closer to
@@ -458,10 +458,10 @@ function faqs(c: ExtendedCity) {
 
 function FaqBlock({ city: c }: { city: ExtendedCity }) {
   return (
-    <section className="border-t bg-secondary/30">
+    <section className="border-t bg-ff-brand-tint">
       <div className="container py-14 md:py-20">
         <div className="mx-auto max-w-3xl">
-          <div className="text-sm font-semibold uppercase tracking-wide text-primary">
+          <div className="text-sm font-semibold uppercase tracking-wide text-ff-brand">
             {c.name} questions
           </div>
           <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
@@ -471,7 +471,7 @@ function FaqBlock({ city: c }: { city: ExtendedCity }) {
             {faqs(c).map((f) => (
               <div key={f.q} className="rounded-lg border bg-card p-6">
                 <dt className="font-semibold">{f.q}</dt>
-                <dd className="mt-2 text-sm text-muted-foreground">{f.a}</dd>
+                <dd className="mt-2 text-sm text-ff-ink-2">{f.a}</dd>
               </div>
             ))}
           </dl>
@@ -494,17 +494,17 @@ function Cta({
 }) {
   return (
     <section className="container py-14 md:py-20">
-      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 text-center shadow-card-pop md:p-12">
+      <div className="mx-auto max-w-3xl rounded-2xl border bg-card p-8 text-center shadow-lg md:p-12">
         <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
           Book a {PRICE_DISPLAY} cleaning in {c.name}
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
+        <p className="mx-auto mt-4 max-w-xl text-ff-ink-2">
           Same-week scheduling is the standard. Pick a time online, or call and a
           person will pick up.
         </p>
         <a
           href={`tel:${PHONE_TEL}`}
-          className="mt-6 inline-block font-display text-3xl font-bold tracking-tight tabular-nums md:text-4xl"
+          className="mt-6 inline-block font-serif text-3xl font-bold tracking-tight tabular-nums md:text-4xl"
         >
           {PHONE_DISPLAY}
         </a>
@@ -526,7 +526,7 @@ function Cta({
               <li key={n.slug}>
                 <Link
                   href={`/${n.slug}`}
-                  className="rounded-full border bg-background px-3 py-1 text-muted-foreground hover:text-primary"
+                  className="rounded-full border bg-background px-3 py-1 text-ff-ink-2 hover:text-ff-brand"
                 >
                   {n.name}
                 </Link>

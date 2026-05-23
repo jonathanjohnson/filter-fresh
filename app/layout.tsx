@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Sora } from "next/font/google";
+import { Plus_Jakarta_Sans, Newsreader, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { SiteHeader } from "@/components/sections/site-header";
@@ -9,30 +9,39 @@ import { organizationSchema } from "@/lib/schema";
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+  style: ["italic"],
+  weight: ["400", "500"],
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
   display: "swap",
   weight: ["400", "500", "600"],
 });
 
-const sora = Sora({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-  weight: ["700", "800"],
-});
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://filterfresh.example.com";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://filterfresh.example.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Filter Fresh Pools — $75 Pool Filter Cleaning, Temecula to San Diego",
+    default: "Filter Fresh Pools — $75 flat pool filter cleaning",
     template: "%s | Filter Fresh Pools",
   },
   description:
-    "Professional pool filter cleaning for $75 flat — half the local market rate. Serving Temecula, Murrieta, and all of San Diego County.",
+    "Pool filter cleaning specialists across Temecula and San Diego County. $75 flat, no upsells. Cartridge, DE, or sand — same price.",
   openGraph: {
     type: "website",
     siteName: "Filter Fresh Pools",
@@ -43,8 +52,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${sora.variable} font-sans`}>
+    <html lang="en" className={`${jakarta.variable} ${newsreader.variable} ${jetbrains.variable}`}>
+      <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}

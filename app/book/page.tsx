@@ -11,19 +11,18 @@ export const metadata: Metadata = {
 
 export default function BookPage() {
   return (
-    <section className="container py-12 md:py-16">
-      <div className="mx-auto max-w-3xl">
+    <section className="ff-section">
+      <div className="ff-container max-w-[820px]">
         <div className="mb-8">
-          <div className="text-sm font-semibold uppercase tracking-wide text-primary">
-            Booking
-          </div>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-            Book a $75 filter cleaning
-          </h1>
-          <p className="mt-3 text-muted-foreground">
-            Five quick steps. We will text within 2 hours during business hours to
-            confirm. Prefer to talk to a person?{" "}
-            <a href={`tel:${PHONE_TEL}`} className="font-semibold text-primary hover:underline">
+          <div className="ff-eyebrow">Booking</div>
+          <h1 className="ff-h1 mt-3">Book a $75 filter clean.</h1>
+          <p className="ff-body-lg mt-3 max-w-[560px]">
+            Five quick steps. We&rsquo;ll text within an hour during business hours to confirm.
+            Prefer to talk to a person?{" "}
+            <a
+              href={`tel:${PHONE_TEL}`}
+              className="ff-mono font-semibold text-ff-brand-deep hover:underline"
+            >
               Call {PHONE_DISPLAY}
             </a>
             .
