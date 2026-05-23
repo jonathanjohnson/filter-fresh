@@ -283,7 +283,7 @@ function Stepper({ step }: { step: number }) {
             className={cn(
               "flex flex-1 items-center gap-2 rounded-md border px-2 py-2 sm:px-3",
               active && "border-primary bg-primary/5 text-foreground",
-              done && "border-fresh-600 text-fresh-700",
+              done && "border-marine-600 text-marine-700",
               !active && !done && "text-muted-foreground"
             )}
           >
@@ -291,7 +291,7 @@ function Stepper({ step }: { step: number }) {
               className={cn(
                 "inline-flex h-6 w-6 flex-none items-center justify-center rounded-full font-display text-xs font-bold",
                 active && "bg-primary text-primary-foreground",
-                done && "bg-fresh-600 text-primary-foreground",
+                done && "bg-marine-600 text-primary-foreground",
                 !active && !done && "bg-secondary text-muted-foreground"
               )}
             >
@@ -421,7 +421,7 @@ function StepZip({
             when we hit your ZIP. No marketing in the meantime.
           </p>
           {waitlistStatus === "ok" ? (
-            <div className="mt-3 text-sm text-fresh-700 font-semibold">
+            <div className="mt-3 text-sm text-marine-700 font-semibold">
               Got it. We will be in touch when we get there.
             </div>
           ) : (

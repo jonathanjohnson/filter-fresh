@@ -54,44 +54,47 @@ const config: Config = {
           foreground: "hsl(var(--card-foreground))",
         },
 
-        // Brand scales — for one-off usage; prefer semantic tokens above.
-        fresh: {
-          50: "#E9FBF1",
-          100: "#CFF6DD",
-          200: "#A2ECBE",
-          300: "#6EDD9D",
-          400: "#3DCB80",
-          500: "#15C26B", // brand primary
-          600: "#0FA259",
-          700: "#0C8047",
-          800: "#0A6238",
-          900: "#08482A",
-          950: "#042818",
+        // Brand scales pulled directly from the Filter Fresh Pools logo.
+        // marine = the deep navy of the "Filter" wordmark and outer ring.
+        // splash = the bright blue gradient of the "Fresh" wordmark and water mark.
+        marine: {
+          50: "#E8EEF7",
+          100: "#C7D6EB",
+          200: "#9AB3DA",
+          300: "#6A8CC4",
+          400: "#3F65AC",
+          500: "#1A3D8F",
+          600: "#143075",
+          700: "#10245C",
+          800: "#0B1A45",
+          900: "#06112E",
+          950: "#03081A",
         },
-        citrus: {
-          50: "#FFF1E8",
-          100: "#FFDEC6",
-          200: "#FFBE92",
-          300: "#FF9A5C",
-          400: "#FF7E36",
-          500: "#FF6A1F", // brand accent
-          600: "#E55613",
-          700: "#B5410D",
-          800: "#86300A",
-          900: "#5C2107",
+        splash: {
+          50: "#E8F3FC",
+          100: "#C5E1F7",
+          200: "#94C8EF",
+          300: "#5DACE6",
+          400: "#2E8FE5",
+          500: "#1A78D6",
+          600: "#1462B8",
+          700: "#114F94",
+          800: "#0D3D70",
+          900: "#092A4D",
+          950: "#051628",
         },
         ink: {
-          50: "#F6F8F7",
-          100: "#ECF0EE",
-          200: "#DDE4DF",
-          300: "#C1CBC4",
-          400: "#9CAAA2",
-          500: "#7A8A80",
-          600: "#5C6B61",
-          700: "#3E4B43",
-          800: "#2A332E",
-          900: "#1B221E",
-          950: "#0F1411",
+          50: "#F4F7FB",
+          100: "#E6ECF3",
+          200: "#CBD5E1",
+          300: "#94A3B8",
+          400: "#64748B",
+          500: "#475569",
+          600: "#334155",
+          700: "#1E293B",
+          800: "#0F172A",
+          900: "#0B1220",
+          950: "#060A14",
         },
       },
       borderRadius: {
@@ -105,12 +108,11 @@ const config: Config = {
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       fontSize: {
-        // Tuned for mobile readability — body never below 15px.
-        xs: ["0.8125rem", { lineHeight: "1.15rem" }],   // 13px
-        sm: ["0.9375rem", { lineHeight: "1.4rem" }],    // 15px (smallest body)
-        base: ["1rem", { lineHeight: "1.55rem" }],      // 16px
-        lg: ["1.125rem", { lineHeight: "1.7rem" }],     // 18px
-        xl: ["1.25rem", { lineHeight: "1.8rem" }],      // 20px
+        xs: ["0.8125rem", { lineHeight: "1.15rem" }],
+        sm: ["0.9375rem", { lineHeight: "1.4rem" }],
+        base: ["1rem", { lineHeight: "1.55rem" }],
+        lg: ["1.125rem", { lineHeight: "1.7rem" }],
+        xl: ["1.25rem", { lineHeight: "1.8rem" }],
         "2xl": ["1.5rem", { lineHeight: "2rem", letterSpacing: "-0.01em" }],
         "3xl": ["1.875rem", { lineHeight: "2.25rem", letterSpacing: "-0.015em" }],
         "4xl": ["2.25rem", { lineHeight: "2.5rem", letterSpacing: "-0.02em" }],
@@ -118,12 +120,12 @@ const config: Config = {
         "6xl": ["3.75rem", { lineHeight: "1.05", letterSpacing: "-0.03em" }],
       },
       boxShadow: {
-        // Warm, soft shadows — service-trade clean, not glassy spa.
-        sm: "0 1px 2px 0 rgba(15, 20, 17, 0.05)",
-        DEFAULT: "0 1px 3px 0 rgba(15, 20, 17, 0.08), 0 1px 2px -1px rgba(15, 20, 17, 0.06)",
-        md: "0 4px 8px -2px rgba(15, 20, 17, 0.08), 0 2px 4px -2px rgba(15, 20, 17, 0.06)",
-        lg: "0 10px 20px -6px rgba(15, 20, 17, 0.10), 0 4px 8px -4px rgba(15, 20, 17, 0.06)",
-        pop: "0 6px 0 0 hsl(var(--primary))", // service-trade "stamped" effect
+        sm: "0 1px 2px 0 rgba(6, 17, 46, 0.05)",
+        DEFAULT:
+          "0 1px 3px 0 rgba(6, 17, 46, 0.08), 0 1px 2px -1px rgba(6, 17, 46, 0.06)",
+        md: "0 4px 8px -2px rgba(6, 17, 46, 0.08), 0 2px 4px -2px rgba(6, 17, 46, 0.06)",
+        lg: "0 10px 20px -6px rgba(6, 17, 46, 0.10), 0 4px 8px -4px rgba(6, 17, 46, 0.06)",
+        pop: "0 6px 0 0 hsl(var(--primary))",
       },
       keyframes: {
         "fade-up": {

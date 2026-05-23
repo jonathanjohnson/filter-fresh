@@ -288,7 +288,7 @@ function FilterTypes() {
             </div>
             <h3 className="mt-2 text-xl font-semibold">{t.name}</h3>
             <p className="mt-3 flex-1 text-sm text-muted-foreground">{t.body}</p>
-            <div className="mt-4 inline-flex w-fit items-center rounded-md bg-fresh-100 px-2.5 py-1 text-xs font-semibold text-fresh-700">
+            <div className="mt-4 inline-flex w-fit items-center rounded-md bg-marine-100 px-2.5 py-1 text-xs font-semibold text-marine-700">
               {t.cadence}
             </div>
           </article>
@@ -444,7 +444,7 @@ function Comparison() {
               {rows.map((r) => (
                 <tr key={r.label}>
                   <td className="px-4 py-3 font-medium md:px-6">{r.label}</td>
-                  <td className="px-4 py-3 font-semibold text-fresh-700 md:px-6">{r.us}</td>
+                  <td className="px-4 py-3 font-semibold text-marine-700 md:px-6">{r.us}</td>
                   <td className="px-4 py-3 text-muted-foreground md:px-6">{r.them}</td>
                 </tr>
               ))}

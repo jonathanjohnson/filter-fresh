@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getCitiesByTier } from "@/lib/cities";
+import { LOGO_SRC } from "@/lib/brand";
 
 export function SiteFooter() {
   const tier1 = getCitiesByTier(1);
@@ -8,10 +10,19 @@ export function SiteFooter() {
       <div className="container py-12">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <div className="font-semibold">Filter Fresh</div>
-            <p className="mt-2 text-sm text-muted-foreground">
-              $75 flat pool filter cleaning. Half the going rate from Temecula
-              through San Diego County.
+            <div className="flex items-center gap-2">
+              <Image
+                src={LOGO_SRC}
+                alt="Filter Fresh Pools"
+                width={36}
+                height={36}
+                className="h-9 w-9 rounded-md"
+              />
+              <div className="font-semibold">Filter Fresh</div>
+            </div>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Clean filter. Clearer water. Healthier pool. $75 flat from
+              Temecula through San Diego County.
             </p>
           </div>
           <div>

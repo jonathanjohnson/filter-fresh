@@ -472,7 +472,7 @@ function WhatIncluded() {
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             <div className="rounded-lg border bg-card p-6 shadow-pop">
-              <div className="text-sm font-semibold text-fresh-700">
+              <div className="text-sm font-semibold text-marine-700">
                 Filter Fresh, {PRICE_DISPLAY} flat
               </div>
               <ul className="mt-3 space-y-2 text-sm">
