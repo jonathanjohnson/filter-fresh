@@ -14,3 +14,6 @@ export function formatPhone(input: string): string {
 
 export const PRICE = 75;
 export const PRICE_DISPLAY = "$75";
+
+export const PHONE_TEL = "+17605550175";
+export const PHONE_DISPLAY = "(760) 555-0175";

@@ -1,21 +1,38 @@
 import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
+import { Logo } from "@/components/ui/logo";
+import { Arrow } from "@/components/ui/icons";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/utils";
+
+const NAV = [
+  { href: "/pool-filter-cleaning", label: "Service" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/#service-area", label: "Service area" },
+  { href: "/blog", label: "Blog" },
+];
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/90 backdrop-blur">
-      <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <span className="inline-block h-6 w-6 rounded-full bg-primary" aria-hidden />
-          Filter Fresh
-        </Link>
-        <nav className="hidden gap-6 text-sm text-muted-foreground md:flex">
-          <Link href="/#how-it-works" className="hover:text-foreground">How it works</Link>
-          <Link href="/#service-area" className="hover:text-foreground">Service area</Link>
-          <Link href="/#faq" className="hover:text-foreground">FAQ</Link>
-        </nav>
-        <Link href="/book" className={buttonVariants({ size: "sm" })}>
+    <header className="ff-header">
+      <div className="flex items-center gap-7">
+        <Logo />
+      </div>
+      <nav className="ff-nav hidden md:flex">
+        {NAV.map((item) => (
+          <Link key={item.href} href={item.href}>
+            {item.label}
+          </Link>
+        ))}
+      </nav>
+      <div className="flex items-center gap-3">
+        <a
+          href={`tel:${PHONE_TEL}`}
+          className="ff-mono hidden text-sm font-medium text-ff-ink-2 hover:text-ff-ink sm:inline"
+        >
+          {PHONE_DISPLAY}
+        </a>
+        <Link href="/book" className="ff-btn ff-btn--primary ff-btn--sm">
           Book — $75
+          <Arrow />
         </Link>
       </div>
     </header>
